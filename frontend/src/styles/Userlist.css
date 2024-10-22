@@ -1,0 +1,53 @@
+
+.titleUsers {
+    font-size: 2em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.subtitleUsers {
+    font-size: 1.5em;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.designTableUsers {
+    margin: 0 auto;
+    width: 90%;
+}
+
+.tableDesing {
+    width: 100%;
+    /*border-collapse: collapse;*/
+    margin: 20px 0;
+    font-size: 1em;
+    text-align: left;
+    color: #000000;
+    background-color: #ffffff;
+}
+
+.tableDesing th, .tableDesing td {
+    padding: 12px 15px;
+    /*border: 1px solid #ff0000;*/
+}
+
+.tableDesing th {
+    background-color: #ffffff;
+    color: #333;
+    border-bottom: 2px solid #33333334;
+}
+
+.tableDesing tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+.tableDesing tr:hover {
+    background-color: #00000015;
+    color:#000000c2;  
+}
+
+.tableDesing .actions {
+    display: flex;
+    justify-content: space-around;
+}

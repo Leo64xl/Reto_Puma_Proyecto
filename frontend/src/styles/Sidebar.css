@@ -1,0 +1,64 @@
+
+.menuPrincipal {
+    margin-left: 15px;
+    background-color: #ffffff;
+}
+
+.generalC {
+    font-weight: bold;
+    font-size: 15px;
+    color:#0000003d;
+    padding-block-end: 12px;
+}
+
+.dashboardC {
+    padding: 2px;
+    font-size: 15px;
+    margin-left: 5px;
+    padding-block-end: 10px;
+
+}
+
+.productsC {
+    padding: 2px;
+    margin-left: 5px;
+    font-size: 15px;
+    padding-block-end: 10px;
+}
+
+.adminC {
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 15px;
+    color:#0000003d;
+    padding-block-end: 12px;
+}
+
+.usersC {
+    margin-left: 5px;
+    font-size: 15px;
+    padding-block-end: 12px;
+}
+
+.settingsC {
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 15px;
+    color:#0000003d;
+    padding-block-end: 12px;
+}
+
+.buttonMenu {
+    background-color: #ffffff;
+}
+
+.buttonM {   
+    margin-left: 5px;
+    font-size: 15px;
+    padding-block-end: 12px;
+    color: #000000;
+}
+
+
+
+

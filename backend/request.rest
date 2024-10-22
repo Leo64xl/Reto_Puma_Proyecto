@@ -1,0 +1,95 @@
+// Crea un usuario
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+    "name": "Admin",
+    "email": "admin@gmail.com",
+    "password": "123456",
+    "confPassword": "123456",
+    "role": "user"
+}
+
+###
+// Get para todos los usuarios
+GET http://localhost:5000/users
+
+###
+// Get Single user
+GET http://localhost:5000/users/8262c91e-f985-4eae-81c2-6557e0faadc3
+
+###
+// Actualizar usuario
+PATCH  http://localhost:5000/users/8262c91e-f985-4eae-81c2-6557e0faadc3
+Content-Type: application/json
+
+{
+    "name": "Admin",
+    "email": "admin@gmail.com",
+    "password": "",
+    "confPassword": "",
+    "role": "admin"
+}
+
+###
+// Eliminar usuario
+DELETE  http://localhost:5000/users/8262c91e-f985-4eae-81c2-6557e0faadc3
+
+###
+// Login admin
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{   
+    "email": "admin@gmail.com",
+    "password": "123456"    
+}
+
+###
+//Login usuario 
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{   
+    "email": "john@gmail.com",
+    "password": "123456"    
+}
+
+###
+// Get usuario logueado
+GET http://localhost:5000/me
+
+###
+// Logout usuario
+DELETE http://localhost:5000/logout 
+
+###
+// Get para todos los productos
+GET http://localhost:5000/products
+
+###
+// Get Single producto
+GET http://localhost:5000/products/c4b99157-0f59-4409-b1d9-56697c4ecc7a
+
+###
+// Post Data Product
+POST http://localhost:5000/products
+Content-Type: application/json
+
+{
+    "name": "Product 6", 
+    "price": 999
+}
+
+###
+// Patch Update Product
+PATCH http://localhost:5000/products/d603604d-f0f4-4a74-8461-5289c3317f9c
+Content-Type: application/json
+
+{
+    "name": "Product Updated", 
+    "price": 999999
+}
+
+###
+DELETE http://localhost:5000/products/c4b99157-0f59-4409-b1d9-56697c4ecc7a

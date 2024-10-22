@@ -1,0 +1,53 @@
+
+.buttonUpdate {
+    margin-top: 20px;
+}
+
+.buttonUpdate .button {
+    background-color: #1f9c49; 
+    color: #ffffff; 
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-color: #000000;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 150px;
+}
+
+.buttonUpdate .button:hover {
+    background-color: #178a3e; 
+}
+
+.selectPanel {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.selectPanel select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #00000011;
+    border-radius: 5px;
+    appearance: none; 
+    background-color: #00000013;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.selectPanel select:hover {
+    border-color: #00000013; 
+}
+
+.selectPanel::after {
+    content: 'Select One New Role ▼'; 
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none; 
+    color: #888;
+}

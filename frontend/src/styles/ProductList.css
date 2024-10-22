@@ -1,0 +1,106 @@
+
+.titleUsers2 {
+    font-size: 2em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.subtitleUsers2 {
+    font-size: 1.5em;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.designTableProducts {
+    margin: 0 auto;
+    width: 90%;
+}
+
+.tableDesingProducts {
+    width: 100%;
+    /*border-collapse: collapse;*/
+    margin: 20px 0;
+    font-size: 1em;
+    text-align: left;
+    color: #000000;
+    background-color: #ffffff;
+}
+
+.tableDesingProducts th, .tableDesingProducts td {
+    padding: 12px 15px;
+    /*border: 1px solid #ff0000;*/
+}
+
+.tableDesingProducts th {
+    background-color: #ffffff;
+    color: #333;
+    border-bottom: 2px solid #33333334;
+}
+
+.tableDesingProducts tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+.tableDesingProducts tr:hover {
+    background-color: #00000015;
+    color:#000000c2;
+}
+
+.tableDesingProducts .actions {
+    display: flex;
+    justify-content: space-around;
+}
+
+.buttonEdit {
+    background-color: #007bff; 
+    color: #fff; 
+    border: none;
+    padding: 8px 12px;
+    font-size: 0.875em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none; 
+    display: inline-block; 
+    margin-right: 5px; 
+}
+
+.buttonEdit:hover {
+    background-color: #0056b3; 
+}
+
+.buttonDelete {
+    background-color: #dc3545; 
+    color: #fff; 
+    border: none;
+    padding: 8px 12px;
+    font-size: 0.875em;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none; 
+    display: inline-block; 
+}
+
+.buttonDelete:hover {
+    background-color: #c82333; 
+}
+
+.buttonAdd {
+    background-color: #28a746ce; 
+    color: #fff; 
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none; 
+    display: inline-block; 
+    margin-bottom: 20px; 
+}
+
+.buttonAdd:hover {
+    background-color: #28a746fd; 
+}
