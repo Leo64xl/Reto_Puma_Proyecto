@@ -31,6 +31,22 @@ const Products = db.define('product',{
          notEmpty: true,        
        }
    },   
+
+   description: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            notEmpty: true,        
+        }
+    },
+
+    available: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+            notEmpty: true,        
+        }
+    },
    
    userId: {
      type: DataTypes.INTEGER,     

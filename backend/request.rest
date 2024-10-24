@@ -3,11 +3,11 @@ POST http://localhost:5000/users
 Content-Type: application/json
 
 {
-    "name": "Admin",
-    "email": "admin@gmail.com",
+    "name": "Admin22",
+    "email": "admin2@gmail.com",
     "password": "123456",
     "confPassword": "123456",
-    "role": "user"
+    "role": "admin"
 }
 
 ###
@@ -69,27 +69,83 @@ GET http://localhost:5000/products
 
 ###
 // Get Single producto
-GET http://localhost:5000/products/c4b99157-0f59-4409-b1d9-56697c4ecc7a
+GET http://localhost:5000/products/aa4efa9a-a240-4dc5-869f-5efeff261a72
 
 ###
-// Post Data Product
+// Post Data Product crear producto
 POST http://localhost:5000/products
 Content-Type: application/json
 
 {
-    "name": "Product 6", 
-    "price": 999
+    "name": "Producto 1", 
+    "price": 999,
+    "description": "Producto 1 creado",
+    "available": "yes"
 }
 
 ###
 // Patch Update Product
-PATCH http://localhost:5000/products/d603604d-f0f4-4a74-8461-5289c3317f9c
+PATCH http://localhost:5000/products/aa4efa9a-a240-4dc5-869f-5efeff261a72
 Content-Type: application/json
 
 {
-    "name": "Product Updated", 
-    "price": 999999
+    "name": "Producto 1 actualizado", 
+    "price": 999999,
+    "description": "es un bonito producto pero ya no esta disponible para la venta",
+    "available": "no"
 }
 
 ###
-DELETE http://localhost:5000/products/c4b99157-0f59-4409-b1d9-56697c4ecc7a
+// Eliminar producto
+DELETE http://localhost:5000/products/aa4efa9a-a240-4dc5-869f-5efeff261a72
+
+###
+// Creacion de formularios
+POST http://localhost:5000/forms
+Content-Type: application/json
+
+{
+    "nameForm": "formulario 1 creado",
+    "nameUser": "Juan",
+    "nameUser2" : "Malo",
+    "lastnameone": "Perez",
+    "lastnametwo": "Sanchez",
+    "birthday": "20 de noviembre",
+    "category1": "infantil SC",
+    "typekit": "Kit asociacion",
+    "talla": "M",
+    "team": "garzas",
+    "phone": "1234567890",
+    "email": "leo@gmail.com",
+    "origin": "Teotihuacan"
+}
+
+###
+// Get para todos los formularios
+GET http://localhost:5000/forms
+
+###
+// Get para actualizar el formulario
+PATCH http://localhost:5000/forms/8225ec4d-f2a2-45b5-9b30-c81c58833d54
+Content-Type: application/json
+
+{
+    "nameForm": "formulario 1 actualizado correctamente",
+    "nameUser": "Juan",
+    "lastnameone": "Perez",
+    "lastnametwo": "Sanchez",
+    "birthday": "20 de noviembre",
+    "category1": "infantil SC",
+    "typekit": "Kit asociacion",
+    "talla": "M",
+    "team": "garzas",
+    "phone": "1234567890",
+    "email": "leo@gmail.com",
+    "origin": "Teotihuacan"
+}
+
+###
+/// Eliminar formulario
+DELETE http://localhost:5000/forms/8225ec4d-f2a2-45b5-9b30-c81c58833d54
+
+###

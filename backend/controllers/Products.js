@@ -7,7 +7,7 @@ export const getProducts = async(req, res) => {
         let response;
         if(req.role === "user") {
             response = await Products.findAll({
-                attributes: ['uuid', 'name', 'price'],
+                attributes: ['uuid', 'name', 'price', 'description', 'available'],
                 include: [{
                     model: Users,
                     attributes:['name', 'email']
@@ -15,7 +15,7 @@ export const getProducts = async(req, res) => {
             });
         }else{
             response = await Products.findAll({
-                attributes: ['uuid', 'name', 'price'],
+                attributes: ['uuid', 'name', 'price', 'description', 'available'],
                 where: {
                     userId: req.userId
                 },
@@ -42,7 +42,7 @@ export const getProductById = async(req, res) => {
         let response;
         if(req.role === "admin") {
             response = await Products.findOne({
-                attributes: ['uuid', 'name', 'price'],
+                attributes: ['uuid', 'name', 'price', 'description', 'available'],
                 where: {
                 id: product.id
             },
@@ -53,7 +53,7 @@ export const getProductById = async(req, res) => {
             });
         }else{
             response = await Products.findOne({
-                attributes: ['uuid', 'name', 'price'],
+                attributes: ['uuid', 'name', 'price', 'description', 'available'],
                 where: {
                     [Op.and] : [{id: product.id}, {userId: req.userId}]                    
                 },
@@ -70,11 +70,13 @@ export const getProductById = async(req, res) => {
 }
 
 export const createProduct = async (req, res) => { 
-    const {name, price} = req.body;
+    const {name, price, description, available} = req.body;
     try {
         await Products.create({
             name: name,
             price: price,
+            description: description,
+            available: available,
             userId: req.userId
         });
         res.status(201).json({msg: "Producto Creado correctamente"})
@@ -91,16 +93,16 @@ export const updateProduct = async(req, res) => {
             }
         });
         if(!product) return res.status(404).json({msg: "Datos no encontrados"});
-        const {name, price} = req.body;
+        const {name, price, description, available} = req.body;
         if(req.role === "admin"){
-            await Products.update({name, price},{
+            await Products.update({name, price, description, available},{
                 where:{
                     id: product.id
                 }
             });
         }else{
             if(req.userId !== product.userId) return res.status(403).json({msg: "Acceso denegado"});
-            await Products.update({name, price},{
+            await Products.update({name, price, description, available},{
                 where: {
                     [Op.and] : [{id: product.id}, {userId: req.userId}]                    
                 }
@@ -120,7 +122,7 @@ export const deleteProduct = async(req, res) => {
             }
         });
         if(!product) return res.status(404).json({msg: "Datos no encontrados"});
-        const {name, price} = req.body;
+        const {name, price, description, available} = req.body;
         if(req.role === "admin"){
             await Products.destroy({
                 where:{

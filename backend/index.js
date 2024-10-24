@@ -7,6 +7,8 @@ import SequelizeStore from 'connect-session-sequelize';
 import UserRoute from './routes/UserRoute.js';
 import ProductRoute from './routes/ProductRoute.js';
 import AuthRoute from './routes/AuthRoute.js';
+import FormsRoute from "./routes/FormRoute.js";
+
 dotenv.config();
 
 const app = express();
@@ -17,9 +19,9 @@ const store = new sessionStore({
     db: db,
 });
 
-//(async() => {
-//    await db.sync();
-//}) ();
+(async() => {
+    await db.sync();
+}) ();
 
 app.use(sessions( {
     secret: process.env.SESS_SECRET,
@@ -40,8 +42,9 @@ app.use(express.json());
 app.use(UserRoute);
 app.use(ProductRoute);
 app.use(AuthRoute);
+app.use(FormsRoute);
 
-//store.sync();
+store.sync();
 
 app.listen(process.env.APP_PORT,() => {
     console.log('Server up and running...');
