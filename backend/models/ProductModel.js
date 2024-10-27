@@ -23,6 +23,9 @@ const Products = db.define('product',{
          len: [3, 100]
        }
    },   
+
+   image: DataTypes.STRING,     
+   url: DataTypes.STRING,
    
    price: {
      type: DataTypes.INTEGER,     

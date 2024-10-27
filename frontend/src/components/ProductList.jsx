@@ -53,52 +53,43 @@ const ProductList = () => {
         </>
       )}
 
-      <div className="designTableProducts">
-        <table className="tableDesingProducts">
-          <thead>
-            <tr>
-              <th>No</th>
-              <th>Product Name</th>
-              <th>Price</th>
-              <th>Description</th> 
-              <th>Adviable</th> 
-              <th>Created By</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {products.map((product, index) => (
-              <tr key={product.uuid}>
-              <td>{index + 1}</td>
-              <td>{product.name}</td>
-              <td>${product.price}</td>
-              <td>{product.description}</td> 
-              <td>{product.available}</td>
-              <td>{product.user.name}</td>
-              <td>
-
-              {user && user.role === 'admin' && (
-                <>
-                  <Link to={`/products/edit/${product.uuid}`} className="buttonEdit">Edit</Link>
-                  <button 
-                    onClick={()=> handleDelete(product.uuid)} 
-                    className="buttonDelete">Delete<IoTrash />
-                  </button>
-                </>
-              )}
-
-              {user && user.role === 'user' && (
-                <>
-                  <Link to={`/products/buy/${product.uuid}`} className="buttonEdit">Buy product <IoPricetagOutline/></Link>
-                </>
-              )}
-
-              </td>
-            </tr>
-            ))}
-          </tbody>
-        </table>
+      <div className="container mt-45">
+      <div className="columns is-multiline mt-2">
+        {products.map((product) => (
+          <div className="column is-one-quarter" key={product.id}>
+            <div className="card" style={{ maxWidth: '250px', margin: 'auto' }}>
+              <div className="card-image">
+                <figure className="image is-4by3">
+                  <img 
+                     src={product.url} 
+                     alt="Image" 
+                     style={{ width: '100%', height: '30vh', backgroundColor: '#f2f2f2' }}
+                    />
+                </figure>
+              </div>
+              <div className="card-content">
+                <div className="media">
+                  <div className="media-content">
+                    <p className="title is-4">{product.name}</p>
+                  </div>
+                </div>
+              </div>
+              <footer className="card-footer">
+              <Link to={`/products/edit/${product.uuid}`} className="card-footer-item">
+                  Edit
+                </Link>
+                <a
+                  //onClick={() => deleteProduct(product.id)}
+                  className="card-footer-item"
+                >
+                  Delete
+                </a>
+              </footer>
+            </div>
+          </div>
+        ))}
       </div>
+    </div>
       {msg && <div className="notification is-success">{msg}</div>}            
     </div>
   );
