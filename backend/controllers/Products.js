@@ -40,7 +40,7 @@ export const getProductById = async(req, res) => {
         });
         if(!product) return res.status(404).json({msg: "Datos no encontrados"});
         let response;
-        if(req.role === "admin") {
+        if(req.role === "user") {
             response = await Products.findOne({
                 attributes: ['uuid', 'name', 'price', 'description', 'available'],
                 where: {

@@ -3,10 +3,14 @@ import { IoMail } from 'react-icons/io5'
 import axios from 'axios';
 import {useNavigate, useParams} from 'react-router-dom';
 
+//formulario donde se editan productos
+
 const FormEditProduct = () => {
 
-  const [name, setName] = useState('');
+    const [name, setName] = useState('');
     const [price, setPrice] = useState('');
+    const [description, setDescription] = useState('');
+    const [available, setAvailable] = useState('');
     const [msg, setMsg] = useState('');
     const navigate = useNavigate();
     const {id} = useParams();
@@ -18,6 +22,8 @@ const FormEditProduct = () => {
           const response = await axios.get(`http://localhost:5000/products/${id}`);
           setName(response.data.name);
           setPrice(response.data.price);
+          setDescription(response.data.description);
+          setAvailable(response.data.available);
         } catch (error) {
           if(error.response) {
             setMsg(error.response.data.msg);
@@ -32,7 +38,9 @@ const FormEditProduct = () => {
       try {
           await axios.patch(`http://localhost:5000/products/${id}`, {
             name: name,
-            price: price
+            price: price,
+            description: description,
+            available: available,
           });
           navigate('/products');
       } catch (error) {
@@ -77,6 +85,37 @@ const FormEditProduct = () => {
                       className="input2"
                       placeholder='Price'                                 
                     />
+                  </div>
+                </div>
+
+                <div className="field">
+                  <label 
+                    className='label has-text-dark'><IoMail /> Description:
+                  </label> 
+                  <div className="control">
+                    <input 
+                      type='text' 
+                      className="input2"
+                      placeholder='Description'  
+                      value={description}
+                      onChange={(e) => setDescription(e.target.value)}                               
+                    />
+                  </div>
+                </div>
+
+                <div className="field">
+                  <label 
+                    className='label has-text-dark'><IoMail /> Available:
+                  </label> 
+                  <div className="control">
+                  <div className='selectOptions2'>
+                      <select                      
+                        value={available}
+                        onChange={(e) => setAvailable(e.target.value)}>
+                        <option value='yes'>Yes</option>
+                        <option value='no'>No</option>
+                      </select> 
+                    </div>
                   </div>
                 </div>
                 

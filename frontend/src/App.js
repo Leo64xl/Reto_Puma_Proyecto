@@ -8,6 +8,11 @@ import EditUser from "./pages/EditUser";
 import AddProduct from "./pages/AddProduct";
 import EditProduct from "./pages/EditProduct";
 import BuyProduct from "./pages/BuyProduct";
+import Forms from "./pages/Forms";
+import FormAdd from "./pages/FormAdd";
+import FormControl from "./pages/FormControl";
+import FormCheckAdmin from "./pages/FormCheckAdmin";
+import EditRegister from "./pages/EditRegister";
 
 function App() {
   return (
@@ -22,7 +27,12 @@ function App() {
           <Route path="/products" element={<Products />} />
           <Route path="/products/add" element={<AddProduct />} />
           <Route path="/products/edit/:id" element={<EditProduct />} />
-          <Route path="/products/buy/:id" element={<BuyProduct />} />
+          <Route path="/products/buy/:id" element={<BuyProduct />} />   
+          <Route path="/forms/register" element={<Forms />} />    
+          <Route path="/forms/register/edit/:id" element={<EditRegister />} /> 
+          <Route path="/forms/register/add" element={<FormAdd />} />
+          <Route path="/forms/view/admin" element={<FormControl />} /> 
+          <Route path="/forms/view/admin/form/:id" element={<FormCheckAdmin />} /> 
         </Routes>
       </BrowserRouter>
     </div>

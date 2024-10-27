@@ -5,7 +5,7 @@ import { Op } from "sequelize";
 export const getForms = async(req, res) => {
     try {
         let response;
-        if(req.role === "user") {
+        if(req.role === "admin") {
             response = await Forms.findAll({
                 attributes: ['uuid', 'nameForm', 'nameUser', 'nameUser2', 'lastnameone', 'lastnametwo', 'birthday', 'category1', 'typekit', 'talla', 'team', 'phone', 'email', 'origin'],
                 include: [{
@@ -40,7 +40,7 @@ export const getFormById = async(req, res) => {
         });
         if(!form) return res.status(404).json({msg: "Datos no encontrados"});
         let response;
-        if(req.role === "admin") {
+        if(req.role === "admin" || req.role === "user") {
             response = await Forms.findOne({
                 attributes: ['uuid', 'nameForm', 'nameUser', 'nameUser2', 'lastnameone', 'lastnametwo', 'birthday', 'category1', 'typekit', 'talla', 'team', 'phone', 'email', 'origin'],
                 where: {
@@ -103,7 +103,7 @@ export const updateForm = async (req, res) => {
         });
         if(!form) return res.status(404).json({msg: "Datos no encontrados"});
         const { nameForm, nameUser, nameUser2, lastnameone, lastnametwo, birthday, category1, typekit, talla, team, phone, email, origin } = req.body;
-        if(req.role === "admin") {
+        if(req.role === "admin" || req.role === "user") {
             await Forms.update({nameForm, nameUser, nameUser2, lastnameone, lastnametwo, birthday, category1, typekit, talla, team, phone, email, origin},{
                 where: {
                     id: form.id
@@ -132,7 +132,7 @@ export const deleteForm = async (req, res) => {
         });
         if(!form) return res.status(404).json({msg: "Datos no encontrados"});
         const { nameForm, nameUser, nameUser2, lastnameone, lastnametwo, birthday, category1, typekit, talla, team, phone, email, origin } = req.body;
-        if(req.role === "admin") {
+        if(req.role === "admin" || req.role === "user") {
             await Forms.destroy({
                 where: {
                     id: form.id
