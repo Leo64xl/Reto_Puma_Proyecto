@@ -52,7 +52,7 @@ const FormEditUser = () => {
   return (
     <div>
         <h1 className='title has-text-dark'>Users</h1>
-        <h2 className='subtitle'>Update User</h2>
+        <h2 className='subtitle'>Update User {name}</h2>
         <div className='card has-text-dark' style={{backgroundColor: '#ffffff'}}>
             <div className='card-content' style={{backgroundColor: '#ffffff'}}>
                 <div className='content'>

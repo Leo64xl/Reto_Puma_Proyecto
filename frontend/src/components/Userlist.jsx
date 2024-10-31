@@ -37,7 +37,7 @@ const Userlist = () => {
   return (
     <div>
       <h1 className="titleUsers">Users</h1>
-      <h2 className="subtitleUsers">List of Users</h2>
+      <h2 className="subtitleUsers">Control Users</h2>
       <Link to="/users/add" className="buttonAdd" >Add User <IoPersonAddSharp /></Link>
       <div className="designTableUsers">
         <table className="tableDesing">

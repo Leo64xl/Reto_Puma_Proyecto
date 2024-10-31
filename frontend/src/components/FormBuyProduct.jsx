@@ -11,6 +11,7 @@ const FormBuyProduct = () => {
     const [description, setDescription] = useState('');
     const [available, setAvailable] = useState('');
     const [msg, setMsg] = useState('');
+    const [url, setUrl] = useState();
     const {id} = useParams();
 
     useEffect(() => {
@@ -21,6 +22,7 @@ const FormBuyProduct = () => {
         setPrice(response.data.price);
         setDescription(response.data.description);
         setAvailable(response.data.available);
+        setUrl(response.data.url);
       } catch (error) {
         if (error.response) {
           setMsg(error.response.data.msg);
@@ -57,7 +59,19 @@ const FormBuyProduct = () => {
           <div className='content'>
             <form className='has-text-dark' style={{backgroundColor: '#ffffff'}}>
               <div className="field" style={{backgroundColor: '#ffffff'}}>
-                <label className='label has-text-dark'><IoCube/> Product Name:</label>
+                
+              <div className="field">
+                  <label className='label has-text-dark'><IoCube/> Product:</label>
+                  <div className="control image-container">
+                    <img 
+                      src={url} 
+                      alt="Product" 
+                      className="product-image"
+                    />
+                  </div>
+                </div>
+                
+                <label className='label has-text-dark'><IoCube/> Product Name:</label>               
                 <div className="control">
                   <input 
                     type='text' 

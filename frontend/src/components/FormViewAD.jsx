@@ -55,9 +55,9 @@ const FormViewAD = () => {
   
   return (
     <div>
-      <h1 className="titleUsers">Forms</h1>
+      <h1 className="titleUsers">Registers</h1>
       <h2 className="subtitleUsers">List All Registers</h2>
-      <button onClick={handleDownloadExcel} className="buttonAdd">Download All Registers <IoDownload /></button>
+      <button onClick={handleDownloadExcel} className="buttonAdd mt-1">Download Registers <IoDownload /></button>
       <div className="designTableUsers">
         <table className="tableDesing2">
           <thead>

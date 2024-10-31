@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { IoPricetag, IoHome, IoLogOut, IoPersonAdd, IoArchive  } from "react-icons/io5";
+import { IoPricetag, IoHome, IoLogOut, IoPersonAdd, IoArchive, IoConstruct  } from "react-icons/io5";
 import "../styles/Sidebar.css";
 import { useDispatch, useSelector } from 'react-redux';
 import { LogOut, reset } from "../features/authSlice";
@@ -54,7 +54,7 @@ const Sidebar = () => {
               <li>
                 <div className="usersC">
                   <NavLink to={"/users"} className="usersM has-text-dark">
-                  <IoPersonAdd/> Control Users</NavLink>
+                  <IoConstruct/> Control Users</NavLink>
                 </div>
               </li>         
             </ul>

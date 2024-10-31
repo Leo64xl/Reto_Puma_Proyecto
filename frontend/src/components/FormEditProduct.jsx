@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { IoMail } from 'react-icons/io5'
+import { IoMail, IoCube, IoPricetag, IoDocumentText, IoCheckmarkCircle, IoArrowBack, IoLogoWhatsapp, IoDownload } from 'react-icons/io5';
 import axios from 'axios';
 import {useNavigate, useParams} from 'react-router-dom';
 
@@ -12,9 +12,10 @@ const FormEditProduct = () => {
     const [description, setDescription] = useState('');
     const [available, setAvailable] = useState('');
     const [msg, setMsg] = useState('');
+    const [url, setUrl] = useState('');
+    const [image, setImage] = useState(null);
     const navigate = useNavigate();
     const {id} = useParams();
-
 
     useEffect(() => {
       const getProductById = async () => {
@@ -24,6 +25,8 @@ const FormEditProduct = () => {
           setPrice(response.data.price);
           setDescription(response.data.description);
           setAvailable(response.data.available);
+          setUrl(response.data.url);
+          setImage(response.data.image);
         } catch (error) {
           if(error.response) {
             setMsg(error.response.data.msg);
@@ -36,25 +39,33 @@ const FormEditProduct = () => {
     const updateProduct = async (e) => {
       e.preventDefault();
       try {
-          await axios.patch(`http://localhost:5000/products/${id}`, {
-            name: name,
-            price: price,
-            description: description,
-            available: available,
-          });
-          navigate('/products');
+        const formData = new FormData();
+        formData.append('name', name);
+        formData.append('price', price);
+        formData.append('description', description);
+        formData.append('available', available);
+        formData.append('url', url); 
+        formData.append('image', image); 
+    
+        await axios.patch(`http://localhost:5000/products/${id}`, formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        });
+        navigate('/products');
       } catch (error) {
-        if(error.response) {
+        if (error.response) {
           setMsg(error.response.data.msg);
         }
       }
-    }
+    };
+    
 
 
   return (
     <div>
-        <h1 className='title has-text-dark'>Products</h1>
-        <h2 className='subtitle'>Edit Products</h2>
+        <h1 className='title has-text-dark'>Product</h1>
+        <h2 className='subtitle mt-1'>Edit Product {name}</h2>
         <div className='card has-text-dark' style={{backgroundColor: '#ffffff'}}>
             <div className='card-content' style={{backgroundColor: '#ffffff'}}>
                 <div className='content'>
@@ -63,8 +74,20 @@ const FormEditProduct = () => {
                   className='has-text-dark' 
                   style={{backgroundColor: '#ffffff'}}>
                   <p className='has-text-centered'>{msg}</p>
+                  <div className="field">
+                    <label className='label has-text-dark'><IoDownload /> Upload Image:</label>
+                    <div className="control">
+                    <input
+                      type='file'
+                      className="input2"
+                      accept="image/*"
+                      onChange={(e) => setImage(e.target.files[0])} // Obtiene el archivo correctamente
+                    />
+
+                    </div>
+                  </div>
                 <div className="field" style={{backgroundColor: '#ffffff'}}>
-                  <label className='label has-text-dark'><IoMail /> Product Name:</label> 
+                  <label className='label has-text-dark'><IoCube /> Product Name:</label> 
                   <div className="control">
                     <input 
                       value={name}
@@ -76,7 +99,7 @@ const FormEditProduct = () => {
                   </div>
                 </div>
                 <div className="field">
-                  <label className='label has-text-dark'><IoMail /> Price:</label> 
+                  <label className='label has-text-dark'><IoPricetag /> Price:</label> 
                   <div className="control">
                     <input 
                       value={price}
@@ -90,7 +113,7 @@ const FormEditProduct = () => {
 
                 <div className="field">
                   <label 
-                    className='label has-text-dark'><IoMail /> Description:
+                    className='label has-text-dark'><IoDocumentText /> Description:
                   </label> 
                   <div className="control">
                     <input 
@@ -105,15 +128,16 @@ const FormEditProduct = () => {
 
                 <div className="field">
                   <label 
-                    className='label has-text-dark'><IoMail /> Available:
+                    className='label has-text-dark'><IoCheckmarkCircle /> Available:
                   </label> 
                   <div className="control">
                   <div className='selectOptions2'>
                       <select                      
                         value={available}
                         onChange={(e) => setAvailable(e.target.value)}>
-                        <option value='yes'>Yes</option>
-                        <option value='no'>No</option>
+                        <option value='Default'>Default</option>
+                        <option value='Yes'>Yes</option>
+                        <option value='No'>No</option>
                       </select> 
                     </div>
                   </div>

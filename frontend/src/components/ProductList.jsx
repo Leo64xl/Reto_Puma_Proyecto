@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import "../styles/ProductList.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { IoBrush, IoTrash, IoAddCircle, IoHome, IoPricetagOutline } from "react-icons/io5";
+import { IoAddCircle, IoHome, IoCart } from "react-icons/io5";
 import { useSelector } from 'react-redux';
 
 //formulario donde se muestran productos, y se eliminan directamente
@@ -63,28 +63,43 @@ const ProductList = () => {
                   <img 
                      src={product.url} 
                      alt="Image" 
-                     style={{ width: '100%', height: '30vh', backgroundColor: '#f2f2f2' }}
+                     style={{ width: '100%', height: '30vh', backgroundColor: '#ffffff' }}
                     />
                 </figure>
               </div>
-              <div className="card-content">
+              <div className="card-content"  style={{backgroundColor: '#grey'}}>
                 <div className="media">
                   <div className="media-content">
                     <p className="title is-4">{product.name}</p>
+                    <p className="subtitle is-6 mt-1">Available: {product.available}</p>
+                    <p className="title is-6 mt-2">${product.price}</p>
                   </div>
                 </div>
               </div>
+              {user && user.role === 'admin' && (
               <footer className="card-footer">
               <Link to={`/products/edit/${product.uuid}`} className="card-footer-item">
                   Edit
-                </Link>
-                <a
-                  //onClick={() => deleteProduct(product.id)}
+              </Link>
+                
+                <button
+                  onClick={() => handleDelete(product.uuid)}
                   className="card-footer-item"
                 >
                   Delete
-                </a>
+                </button>
+                
               </footer>
+              )}
+             
+              {user && user.role === 'user' && (
+              <footer className="card-footer">
+              <Link to={`/products/buy/${product.uuid}`} className="card-footer-item">
+                  Buy Product <IoCart/>
+                </Link>                
+              </footer>
+              )}
+
             </div>
           </div>
         ))}
