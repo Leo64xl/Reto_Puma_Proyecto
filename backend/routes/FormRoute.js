@@ -55,4 +55,60 @@ router.get('/download-excel', verifyUser, async (req, res) => {
     }
 });
 
+router.get('/form-stats/category', verifyUser, async (req, res) => {
+    try {
+        const forms = await Forms.findAll();
+        const categoryCounts = forms.reduce((acc, form) => {
+            acc[form.category1] = (acc[form.category1] || 0) + 1;
+            return acc;
+        }, {});
+
+        res.json(categoryCounts);
+    } catch (error) {
+        res.status(500).json({ message: 'Error al obtener estadísticas' });
+    }
+});
+
+router.get('/form-stats/talla', verifyUser, async (req, res) => {
+    try {
+        const forms = await Forms.findAll();
+        const tallaCounts = forms.reduce((acc, form) => {
+            acc[form.talla] = (acc[form.talla] || 0) + 1;
+            return acc;
+        }, {});
+
+        res.json(tallaCounts);
+    } catch (error) {
+        res.status(500).json({ message: 'Error al obtener estadísticas de tallas' });
+    }
+});
+
+router.get('/form-stats/team', verifyUser, async (req, res) => {
+    try {
+        const forms = await Forms.findAll();
+        const teamCounts = forms.reduce((acc, form) => {
+            acc[form.team] = (acc[form.team] || 0) + 1;
+            return acc;
+        }, {});
+
+        res.json(teamCounts);
+    } catch (error) {
+        res.status(500).json({ message: 'Error al obtener estadísticas de equipos' });
+    }
+});
+
+router.get('/form-stats/origin', verifyUser, async (req, res) => {
+    try {
+        const forms = await Forms.findAll();
+        const originCounts = forms.reduce((acc, form) => {
+            acc[form.origin] = (acc[form.origin] || 0) + 1;
+            return acc;
+        }, {});
+
+        res.json(originCounts);
+    } catch (error) {
+        res.status(500).json({ message: 'Error al obtener estadísticas de origen' });
+    }
+});
+
 export default router;

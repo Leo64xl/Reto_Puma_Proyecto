@@ -52,3 +52,18 @@
     display: flex;
     justify-content: space-around;
 }
+
+.register-message {
+  color: #4CAF50; 
+  font-weight: bold;
+  margin-top: 1rem;
+  font-size: 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkmark-icon {
+  margin-left: 5px;
+}

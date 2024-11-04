@@ -72,6 +72,12 @@ export const getFormById = async(req, res) => {
 export const createForm = async (req, res) => {
     const { nameForm, nameUser, nameUser2, lastnameone, lastnametwo, birthday, category1, typekit, talla, team, phone, email, origin } = req.body;
     try {
+        // Verificar si el usuario ya tiene un registro
+        const existingForm = await Forms.findOne({ where: { userId: req.userId } });
+        if (existingForm) {
+            return res.status(400).json({ msg: 'You have already made a register.' });
+        }
+
         await Forms.create({
             nameForm: nameForm,
             nameUser: nameUser,

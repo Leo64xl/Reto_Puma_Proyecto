@@ -38,8 +38,8 @@ const ProductList = () => {
 
   return (
     <div>
-      <h1 className="titleUsers2">Products</h1>
-      <h2 className="subtitleUsers2">List of Products</h2>
+      <h1 className="title has-text-dark mt-1">Products</h1>
+      <h2 className="subtitle">Catalog of Products</h2>
       
       {user && user.role === 'admin' && (
         <>
@@ -54,7 +54,7 @@ const ProductList = () => {
       )}
 
       <div className="container mt-45">
-      <div className="columns is-multiline mt-2">
+      <div className="columns is-multiline">
         {products.map((product) => (
           <div className="column is-one-quarter" key={product.id}>
             <div className="card" style={{ maxWidth: '250px', margin: 'auto' }}>
@@ -63,14 +63,14 @@ const ProductList = () => {
                   <img 
                      src={product.url} 
                      alt="Image" 
-                     style={{ width: '100%', height: '30vh', backgroundColor: '#ffffff' }}
+                     style={{ width: '100%', height: '35vh', backgroundColor: '#ffffff' }}
                     />
                 </figure>
               </div>
-              <div className="card-content"  style={{backgroundColor: '#grey'}}>
+              <div className="card-content" style={{backgroundColor: '#grey'}}>
                 <div className="media">
                   <div className="media-content">
-                    <p className="title is-4">{product.name}</p>
+                    <p className="title is-4 mt-5">{product.name}</p>
                     <p className="subtitle is-6 mt-1">Available: {product.available}</p>
                     <p className="title is-6 mt-2">${product.price}</p>
                   </div>
@@ -95,7 +95,7 @@ const ProductList = () => {
               {user && user.role === 'user' && (
               <footer className="card-footer">
               <Link to={`/products/buy/${product.uuid}`} className="card-footer-item">
-                  Buy Product <IoCart/>
+                  Buy Product $ 
                 </Link>                
               </footer>
               )}

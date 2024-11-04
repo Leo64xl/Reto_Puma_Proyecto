@@ -13,8 +13,10 @@ import FormAdd from "./pages/FormAdd";
 import FormControl from "./pages/FormControl";
 import FormCheckAdmin from "./pages/FormCheckAdmin";
 import EditRegister from "./pages/EditRegister";
+import GraphicsAdmin from "./pages/GraphicsAdmin";
 
 function App() {
+  
   return (
     <div>
       <BrowserRouter>
@@ -32,7 +34,8 @@ function App() {
           <Route path="/forms/register/edit/:id" element={<EditRegister />} /> 
           <Route path="/forms/register/add" element={<FormAdd />} />
           <Route path="/forms/view/admin" element={<FormControl />} /> 
-          <Route path="/forms/view/admin/form/:id" element={<FormCheckAdmin />} /> 
+          <Route path="/forms/view/admin/form/:id" element={<FormCheckAdmin />} />
+          <Route path="/forms/view/admin/graphics" element={<GraphicsAdmin />} /> 
         </Routes>
       </BrowserRouter>
     </div>

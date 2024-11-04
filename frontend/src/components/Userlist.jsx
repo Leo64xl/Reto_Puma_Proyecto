@@ -59,10 +59,10 @@ const Userlist = () => {
               <td>{user.email}</td>
               <td>{user.role}</td>
               <td>
-                <Link to={`/users/edit/${user.uuid}`} className="buttonEdit">Edit<IoBrush /></Link>
+                <Link to={`/users/edit/${user.uuid}`} className="buttonEdit"><IoBrush /></Link>
                 <button 
                   onClick={()=> handleDelete(user.uuid)} 
-                  className="buttonDelete">Delete<IoTrash />
+                  className="buttonDelete"><IoTrash />
                 </button>
               </td>
             </tr>
