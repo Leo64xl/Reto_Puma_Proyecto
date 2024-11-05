@@ -1,0 +1,53 @@
+.Sponsor {
+    background-color: #2B2B2B;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .container {
+    max-width: 760px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: rgb(200, 200, 200);
+    font-weight: 500;
+    flex-wrap: wrap; 
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .container span {
+    flex-basis: 100%;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+  }
+  
+  .container img {
+    height: 80px;
+    object-fit: contain;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .container img:hover {
+    transform: scale(1.1);
+  }
+  
+  
+  @media (max-width: 768px) {
+    .container {
+      gap: 15px;
+    }
+    .container img {
+      height: 60px; 
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .container span {
+      font-size: 1em;
+    }
+    .container img {
+      height: 50px; 
+    }
+  }

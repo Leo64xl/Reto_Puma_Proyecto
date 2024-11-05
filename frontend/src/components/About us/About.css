@@ -1,0 +1,40 @@
+.about-us {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    background-color: #0A0A0A;
+    font-family: Arial, sans-serif;
+  }
+  
+  .about-us-content {
+    flex: 1;
+    max-width: 600px;
+    padding: 20px;
+  }
+  
+  .about-us h2 {
+    font-size: 2em;
+    color: #E3B04B;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  .about-us p {
+    font-size: 1.1em;
+    color: #f1f1f1;
+    line-height: 1.6;
+  }
+  
+  .about-us-image {
+    flex: 1;
+    max-width: 500px;
+  }
+  
+  .about-us-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  

@@ -37,13 +37,13 @@ const ProductList = () => {
   };
 
   return (
-    <div>
-      <h1 className="title has-text-dark mt-1">Products</h1>
-      <h2 className="subtitle">Catalog of Products</h2>
+    <div className="body">
+      <h1 className="title mt-1" style={{color: '#E3B04B'}}>Products</h1>
+      <h2 className="subtitle" style={{color: '#ffffff'}}>Catalog of Products</h2>
       
       {user && user.role === 'admin' && (
         <>
-           <Link to="/products/add" className="buttonAdd" >Add New <IoAddCircle /></Link>
+           <Link to="/products/add" className="buttonAddProduct" >Add New <IoAddCircle /></Link>
         </>
       )}
 
@@ -53,7 +53,7 @@ const ProductList = () => {
         </>
       )}
 
-      <div className="container mt-45">
+      <div className="container mt-4">
       <div className="columns is-multiline">
         {products.map((product) => (
           <div className="column is-one-quarter" key={product.id}>
@@ -67,17 +67,17 @@ const ProductList = () => {
                     />
                 </figure>
               </div>
-              <div className="card-content" style={{backgroundColor: '#grey'}}>
+              <div className="card-content" style={{backgroundColor: '#000000'}}>
                 <div className="media">
                   <div className="media-content">
-                    <p className="title is-4 mt-5">{product.name}</p>
-                    <p className="subtitle is-6 mt-1">Available: {product.available}</p>
-                    <p className="title is-6 mt-2">${product.price}</p>
+                    <p className="title is-4 mt-5" style={{color: '#E3B04B'}}>{product.name}</p>
+                    <p className="subtitle is-6 mt-1" style={{color: '#ffffffde'}}>Available: {product.available}</p>
+                    <p className="title is-6 mt-2" style={{color: '#ffffffbd'}}>${product.price}</p> 
                   </div>
                 </div>
               </div>
               {user && user.role === 'admin' && (
-              <footer className="card-footer">
+              <footer className="card-footer" style={{backgroundColor: '#000000'}}>
               <Link to={`/products/edit/${product.uuid}`} className="card-footer-item">
                   Edit
               </Link>

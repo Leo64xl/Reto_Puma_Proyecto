@@ -1,4 +1,8 @@
 
+.body {
+    background-color: #0A0A0A;
+}
+
 .titleUsers2 {
     font-size: 2em;
     font-weight: bold;
@@ -87,12 +91,13 @@
     background-color: #c82333; 
 }
 
-.buttonAdd {
-    background-color: #28a746ce; 
-    color: #fff; 
+.buttonAddProduct {
+    background-color: #e7ae3b; 
+    color: #000000; 
     border: none;
     padding: 10px 20px;
-    font-size: 1em;
+    font-size: 16px;
+    font-weight: bold;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -101,6 +106,10 @@
     margin-bottom: 20px; 
 }
 
-.buttonAdd:hover {
-    background-color: #28a746fd; 
+.buttonAddProduct:hover {
+    background-color: #cf9726; 
+}
+
+.propiedadprueba {
+    color:#ffffffbd;
 }

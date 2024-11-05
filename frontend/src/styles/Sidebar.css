@@ -1,13 +1,13 @@
 
 .menuPrincipal {
     margin-left: 15px;
-    background-color: #ffffff;
+    background-color: #0a0a0a;
 }
 
 .generalC {
     font-weight: bold;
     font-size: 15px;
-    color:#0000003d;
+    color: #e3b04b;
     padding-block-end: 12px;
 }
 
@@ -30,7 +30,7 @@
     margin-top: 5px;
     font-weight: bold;
     font-size: 15px;
-    color:#0000003d;
+    color:#e3b04b;
     padding-block-end: 12px;
 }
 
@@ -50,19 +50,15 @@
     margin-top: 5px;
     font-weight: bold;
     font-size: 15px;
-    color:#0000003d;
+    color:#e3b04b;
     padding-block-end: 12px;
-}
-
-.buttonMenu {
-    background-color: #ffffff;
 }
 
 .buttonM {   
     margin-left: 5px;
     font-size: 15px;
     padding-block-end: 12px;
-    color: #000000;
+    color: #ffffffde;
 }
 
 

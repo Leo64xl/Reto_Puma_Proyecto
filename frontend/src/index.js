@@ -5,6 +5,7 @@ import { store } from './app/store';
 import App from './App';
 import "bulma/css/bulma.css";
 import axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 axios.defaults.withCredentials = true;
 

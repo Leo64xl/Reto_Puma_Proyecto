@@ -1,0 +1,23 @@
+.avisos-container {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #2B2B2B;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .avisos-title {
+    font-size: 2.5em;
+    color: #E3B04B;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .carousel-image {
+    border-radius: 8px;
+    max-height: 400px;
+    object-fit: cover;
+  }
+  
