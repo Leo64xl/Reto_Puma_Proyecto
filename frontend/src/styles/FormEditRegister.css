@@ -3,8 +3,8 @@
   background-color: #0a0a0a;
 }
 
-.form-edit-user-container {
-  padding: 20px;
+.form-edit-register-container {
+  padding: 1px;
   max-width: 600px;
   margin: 0 auto;
 }
@@ -51,3 +51,5 @@
 .form-select::placeholder {
   color: #999999;
 }
+
+

@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { IoAddCircle, IoTrash, IoCheckmarkCircle } from "react-icons/io5";
 import { useSelector } from 'react-redux';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "../styles/FormView.css";
 
 const FormView = () => {
@@ -29,57 +30,59 @@ const FormView = () => {
   };
 
   const handleDelete = async (uuid) => {
-    const confirmDelete = window.confirm('Are you sure you want to delete this Register?');
+    const confirmDelete = window.confirm('¿Está seguro que desea eliminar este registro?');
     if (confirmDelete) {
       try {
         await axios.delete(`http://localhost:5000/forms/${uuid}`);
-        setMsg('Register deleted successfully.');
+        setMsg('Registro eliminado exitosamente.');
         setForms(forms.filter(form => form.uuid !== uuid));
         if (user && user.role === 'user') {
           setUserForms(userForms.filter(form => form.uuid !== uuid));
         }
         setTimeout(() => setMsg(''), 2500);
       } catch (error) {
-        setMsg('Failed to delete the Register.');
+        setMsg('No se pudo eliminar el registro.');
         setTimeout(() => setMsg(''), 3000);
       }
     }
   };
 
   return (
-    <div>
-      <h1 className="title has-text-dark mt-1">Register</h1>
+    <div className="form-view-container">
       {user && user.role === 'admin' && (
         <>
-          <h2 className="subtitle mt-1">List Complete Admin</h2>
+        <h1 className="title mt-1" style={{ color: '#E3B04B' }}>Registros</h1>
+          <h2 className="subtitle mt-1" style={{ color: '#ffffff' }}>Lista Completa Admin</h2>
         </>
       )}
 
       {user && user.role === 'user' && (
         <>
-          <h2 className="subtitle mt-1">My Register</h2>
+          <h1 className="title mt-1" style={{ color: '#E3B04B' }}>Registro</h1>
+          <h2 className="subtitle mt-1" style={{ color: '#ffffff' }}>Mi Regristro {user && user.name}</h2>
         </>
       )}
 
       {user && user.role === 'user' && userForms.length === 0 && (
-        <Link to="/forms/register/add" className="buttonAdd">Add New Register <IoAddCircle /></Link>
+        <Link to="/forms/register/add" className="btn btn-success mb-3">Nuevo Registro <IoAddCircle /></Link>
       )}
 
       {user && user.role === 'user' && userForms.length > 0 && (
         <div className="register-message">
-           You have already made a register <IoCheckmarkCircle className="checkmark-icon" />
+         Ya has realizado un registro<IoCheckmarkCircle className="checkmark-icon" />
         </div>
       )}
 
-      <div className="designTableUsers">
-        <table className="tableDesing2">
+      <div className="table-responsive">
+        <table className="table table-dark table-striped">
           <thead>
             <tr>
               <th>No</th>
-              <th>Name</th>
-              <th>Category</th>
-              <th>Team</th>
-              <th>Actions Register</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Categoria</th>
+              <th>Equipo</th>
+              <th>Acciones Para Registro</th>
             </tr>
           </thead>
 
@@ -88,13 +91,14 @@ const FormView = () => {
               <tr key={form.uuid}>
                 <td>{index + 1}</td>
                 <td>{form.nameUser}</td>
+                <td>{form.lastnameone}</td>
                 <td>{form.category1}</td>
                 <td>{form.team}</td>
                 <td>
                   {user && (user.role === 'admin' || form.userId === user.id) && (
                     <>
-                      <Link to={`/forms/register/edit/${form.uuid}`} className="buttonEdit">Edit Register</Link>
-                      <button onClick={() => handleDelete(form.uuid)} className="buttonDelete"><IoTrash /></button>
+                      <Link to={`/forms/register/edit/${form.uuid}`} className="btn btn-primary me-2">Editar Registro</Link>
+                      <button onClick={() => handleDelete(form.uuid)} className="btn btn-danger ms-2"><IoTrash /></button>
                     </>
                   )}
                 </td>
@@ -103,7 +107,7 @@ const FormView = () => {
           </tbody>
         </table>
       </div>
-      {msg && <div className="notification is-success">{msg}</div>}
+      {msg && <div className="alert alert-success mt-3">{msg}</div>}
     </div>
   );
 };

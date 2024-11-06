@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { IoMail, IoCube, IoPricetag, IoDocumentText, IoCheckmarkCircle, IoArrowBack, IoLogoWhatsapp, IoDownload } from 'react-icons/io5';
+import { IoCube, IoPricetag, IoDocumentText, IoCheckmarkCircle, IoDownload } from 'react-icons/io5';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import '../styles/FormAddProduct.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../styles/FormAddProduct.css';
 
-// formulario donde se añaden nuevos productos
 const FormAddProduct = () => {
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
@@ -40,103 +40,70 @@ const FormAddProduct = () => {
   };
 
   return (
-    <div>
-      <h1 className='title has-text-dark'>Products</h1>
-      <h2 className='subtitle '>Add New Products</h2>
-      <div className='card has-text-dark' style={{ backgroundColor: '#ffffff' }}>
-        <div className='card-content' style={{ backgroundColor: '#ffffff' }}>
-          <div className='content'>
-            <form
-              onSubmit={saveProduct}
-              className='has-text-dark'
-              style={{ backgroundColor: '#ffffff' }}>
-              <p className='has-text-centered'>{msg}</p>
-
-              <div className="field" style={{ backgroundColor: '#ffffff' }}>
-                <label className='label has-text-dark'><IoCube /> Product Name:</label>
-                <div className="control">
-                  <input
-                    type='text'
-                    className="input2"
-                    required
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    placeholder='Product Name'
-                  />
-                </div>
+    <div className="form-add-product-container">
+      <h1 className="title mt-1" style={{ color: '#E3B04B' }}>Añadir Producto</h1>
+      <h2 className="subtitle mt-1" style={{ color: '#ffffff' }}>Agregar Nuevo Producto</h2>
+      <div className="card bg-dark text-white">
+        <div className="card-body">
+          <form onSubmit={saveProduct}>
+            <p className="text-center">{msg}</p>
+            <div className="mb-3">
+              <label className="form-label"><IoDownload /> Cargar Imagen:</label>
+              <input 
+                type='file' 
+                className="form-control"
+                accept="image/*" 
+                onChange={(e) => setImage(e.target.files[0])} 
+              />
+            </div>
+              <div className="mb-3">
+                <label className="form-label"><IoCube /> Nombre del Producto:</label>
+                <input 
+                  type='text' 
+                  className="form-control"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder='Nombre del Producto'                                 
+                />
               </div>
-
-              <div className="field">
-                <label className='label has-text-dark'><IoPricetag /> Price:</label>
-                <div className="control">
-                  <input
-                    type='text'
-                    required
-                    className="input2"
-                    placeholder='Price'
-                    value={price}
-                    onChange={(e) => setPrice(e.target.value)}
-                  />
-                </div>
+              <div className="mb-3">
+                <label className="form-label"><IoPricetag /> Precio:</label>
+                <input 
+                  type='text' 
+                  className="form-control"
+                  value={price}
+                  onChange={(e) => setPrice(e.target.value)}
+                  placeholder='Precio'                                 
+                />
               </div>
-
-              <div className="field">
-                <label className='label has-text-dark'><IoDocumentText /> Description:</label>
-                <div className="control">
-                  <input
-                    type='text'
-                    className="input2"
-                    placeholder='Description'
-                    required
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                  />
-                </div>
+              <div className="mb-3">
+                <label className="form-label"><IoDocumentText /> Descripción:</label>
+                <input 
+                  type='text' 
+                  className="form-control"
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
+                  placeholder='Descripción'                                 
+                />
               </div>
-
-              <div className="field">
-                <label className='label has-text-dark'><IoCheckmarkCircle /> Available:</label>
-                <div className="control">
-                  <div className='selectOptions2'>
-                    <select
-                      required
-                      value={available}
-                      onChange={(e) => setAvailable(e.target.value)}>
-                      <option value='Default'>Default</option>
-                      <option value='Yes'>Yes</option>
-                      <option value='No'>No</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-
-              <div className="field">
-                <label className='label has-text-dark'><IoDownload /> Load Image:</label>
-                <div className="control">
-                  <input
-                    type='file'
-                    className="input2"
-                    accept="image/*" 
-                    onChange={(e) => setImage(e.target.files[0])} 
-                  />
-                </div>
-              </div>
-
-              <div className="field">
-                <div className='buttonSave'>
-                  <button
-                    className='button is-success'
-                    type='submit'>
-                    Save Product
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
+              <div className="mb-3">
+                <label className="form-label"><IoCheckmarkCircle /> Disponible:</label>
+                <select 
+                  className="form-select"
+                  value={available} 
+                  onChange={(e) => setAvailable(e.target.value)}
+                >
+                  <option>Selecciona una opcion</option>
+                  <option value="Si">Si</option>
+                  <option value="No">No</option>
+                </select>
+              </div>            
+            <button type='submit' className='btn btn-success mt-2'>Guardar Producto</button>
+          </form>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default FormAddProduct;

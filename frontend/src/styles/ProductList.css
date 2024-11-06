@@ -1,115 +1,107 @@
-
 .body {
-    background-color: #0A0A0A;
+  background-color: #0a0a0a;
 }
 
-.titleUsers2 {
-    font-size: 2em;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 5px;
+.product-list-container {
+  padding: 5px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.subtitleUsers2 {
-    font-size: 1.5em;
-    color: #666;
-    margin-bottom: 10px;
+.title {
+  font-size: 2em;
+  font-weight: bold;
+  color: #e3b04b;
 }
 
-.designTableProducts {
-    margin: 0 auto;
-    width: 90%;
+.subtitle {
+  font-size: 1.5em;
+  color: #ffffff;
 }
 
-.tableDesingProducts {
-    width: 100%;
-    /*border-collapse: collapse;*/
-    margin: 20px 0;
-    font-size: 1em;
-    text-align: left;
-    color: #000000;
-    background-color: #ffffff;
+.card {
+  background-color: #1c1c1c;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 250px;
+  margin: 0 auto; 
 }
 
-.tableDesingProducts th, .tableDesingProducts td {
-    padding: 12px 15px;
-    /*border: 1px solid #ff0000;*/
+.card-img-top {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 
-.tableDesingProducts th {
-    background-color: #ffffff;
-    color: #333;
-    border-bottom: 2px solid #33333334;
+.card-body {
+  padding: 15px;
+  background-color: #000000; 
 }
 
-.tableDesingProducts tr:nth-child(even) {
-    background-color: #ffffff;
+.card-title {
+  font-size: 19px;
+  margin-bottom: 5px;
+  font-weight: bold;
 }
 
-.tableDesingProducts tr:hover {
-    background-color: #00000015;
-    color:#000000c2;
+.card-text {
+  font-size: 17.5px;
+  margin-bottom: 5px;
 }
 
-.tableDesingProducts .actions {
-    display: flex;
-    justify-content: space-around;
+.card-footer {
+  background-color: #2c2c2c;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
-.buttonEdit {
-    background-color: #007bff; 
-    color: #fff; 
-    border: none;
-    padding: 8px 12px;
-    font-size: 0.875em;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    text-decoration: none; 
-    display: inline-block; 
-    margin-right: 5px; 
+.btn-primary {
+  background-color: #c4912d;
+  color: #000000;
+  border: none;
 }
 
-.buttonEdit:hover {
-    background-color: #0056b3; 
+.btn-primary:hover {
+  background-color: #c7932d;
+  color: #000000c7;
 }
 
-.buttonDelete {
-    background-color: #dc3545; 
-    color: #fff; 
-    border: none;
-    padding: 8px 12px;
-    font-size: 0.875em;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    text-decoration: none; 
-    display: inline-block; 
+.btn-danger {
+  background-color: #e74c3c;
+  border: none;
 }
 
-.buttonDelete:hover {
-    background-color: #c82333; 
+.btn-danger:hover {
+  background-color: #c0392b;
 }
 
-.buttonAddProduct {
-    background-color: #e7ae3b; 
-    color: #000000; 
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    text-decoration: none; 
-    display: inline-block; 
-    margin-bottom: 20px; 
+.alert-success {
+  background-color: #c7932d;
+  color: #000000;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 20px;
+  text-align: center;
 }
 
-.buttonAddProduct:hover {
-    background-color: #cf9726; 
+.btnBuyProduct {
+  background-color: #c78e1c;
+  color: #000000;
+  border: none;
+  border-radius: 5px;
+  font-size: 17px;
+  padding: 5px;
+  margin-top: 5px;
+  margin-block-end: 5px;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  text-decoration: none; 
 }
 
-.propiedadprueba {
-    color:#ffffffbd;
+.btnBuyProduct:hover {
+  background-color: #b68014;
+  color: #000000fd;
 }

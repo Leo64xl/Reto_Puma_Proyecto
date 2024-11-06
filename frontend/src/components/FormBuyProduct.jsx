@@ -35,93 +35,77 @@ const FormBuyProduct = () => {
   const message = `Hola, estoy interesado en el producto ${name}, ${description}. Puedes darme más información sobre él?`;
 
   return (
-    <>
-      <h1 className='title has-text-dark mt-1'>Product</h1>
-      <h2 className='subtitle mt-1'>Buy Product {name}</h2>
-    <div className="product-container">
-          
-      <div className='card has-text-dark product-card' style={{backgroundColor: '#ffffff'}}>
-        <div className='card-content' style={{backgroundColor: '#ffffff'}}>
-          <div className='content'>
-            <form className='has-text-dark'>
-                <div className="whatsapp-contact">
-                  <a 
-                    href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`} 
-                    className="whatsapp-link" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                  >
-                    <IoLogoWhatsapp size={27} color='#25D366'/> 
-                    <span className="whatsapp-text">
-                      Contáctanos vía WhatsApp para más información sobre este producto.
-                    </span>
-                  </a>
-                </div>
-              <div className="field">
-                <label className='label has-text-dark'><IoCube /> Product:</label>
-                <div className="control image-container">
-                  <img 
-                    src={url} 
-                    alt="Product" 
-                    className="product-image"
-                  />
-                </div>
+    <div className="form-buy-product-container">
+      <h1 className="title mt-1" style={{ color: '#E3B04B' }}>Producto</h1>
+      <h2 className="subtitle mt-1" style={{ color: '#ffffff' }}>Comprar Producto {name}</h2>
+      <div className="card bg-dark text-white">
+        <div className="card-body">
+          <form className="form-buy-product">
+            <p className="text-center">{msg}</p>
+            <div className="whatsapp-contact mb-3">
+              <a 
+                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`} 
+                className="whatsapp-link" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                <IoLogoWhatsapp size={42} color='#25D366'/> 
+                <span className="whatsapp-text">
+                  Contáctanos vía WhatsApp para más información sobre este producto.
+                </span>
+              </a>
+            </div>
+            <div className="mb-3">
+              <label className="form-label"><IoCube /> Producto:</label>
+              <div className="image-container">
+                <img 
+                  src={url} 
+                  alt="Product" 
+                  className="product-image"
+                />
               </div>
-              
-              <div className="field">
-                <label className='label has-text-dark'><IoCube /> Product Name:</label>
-                <div className="control">
-                  <input 
-                    type='text' 
-                    className="input2"
-                    value={name}
-                    disabled
-                  />
-                </div>
-              </div>
-              
-              <div className="field">
-                <label className='label has-text-dark'><IoPricetag /> Price:</label>
-                <div className="control">
-                  <input 
-                    type='text' 
-                    className="input2"
-                    value={`$${price}`}
-                    disabled
-                  />
-                </div>
-              </div>
-
-              <div className="field">
-                <label className='label has-text-dark'><IoDocumentText /> Description:</label>
-                <div className="control">
-                  <input
-                    type='text'
-                    className="input2"                     
-                    value={description}
-                    disabled
-                  />
-                </div>
-              </div>
-              
-              <div className="field">
-                <label className='label has-text-dark'><IoCheckmarkCircle /> Available:</label>
-                <div className="control">
-                  <input 
-                    type='text' 
-                    className="input2"
-                    value={available}
-                    disabled
-                  />
-                </div>
-              </div>
-              <Link to="/products" className="buttonAdd mt-2"><IoArrowBack /> Return Page</Link>
-            </form>
-          </div>
+            </div>
+            <div className="mb-3">
+              <label className="form-label"><IoCube /> Nombre del Producto:</label>
+              <input 
+                type='text' 
+                className="form-control text-black"
+                value={name}
+                disabled
+              />
+            </div>
+            <div className="mb-3">
+              <label className="form-label"><IoPricetag /> Precio:</label>
+              <input 
+                type='text' 
+                className="form-control text-black"
+                value={`$${price}`}
+                disabled
+              />
+            </div>
+            <div className="mb-3">
+              <label className="form-label"><IoDocumentText /> Descripción:</label>
+              <input
+                type='text'
+                className="form-control text-black"                     
+                value={description}
+                disabled
+              />
+            </div>
+            <div className="mb-3">
+              <label className="form-label"><IoCheckmarkCircle /> Disponible:</label>
+              <input 
+                type='text' 
+                className="form-control text-black"
+                value={available}
+                disabled
+              />
+            </div>
+            <Link to="/products" className="btn btn-success mt-2"><IoArrowBack /> Volver</Link>
+          </form>
         </div>
       </div>
     </div>
-   </>
   );
 };
 

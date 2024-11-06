@@ -1,14 +1,85 @@
+.body {
+  background-color: #0a0a0a;
+}
 
-.product-container {
-  max-width: 950px;
+.form-buy-product-container {
+  padding: 0px;
+  max-width: 570px;
   margin: 0 auto;
-  padding: 20px;
+}
+
+.title {
+  font-size: 2em;
+  font-weight: bold;
+  color: #e3b04b;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 1.5em;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.card {
+  background-color: #1c1c1c;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-body {
+  padding: 15px;
+  background-color: #000000;
+}
+
+.form-label {
+  font-size: 18px;
+  color: #e3b04b;
+}
+
+.form-control {
+  background-color: #2c2c2c;
+  color: #000000;
+  border: none;
+  border-radius: 4px;
+}
+
+.form-control::placeholder {
+  color: #999999;
+}
+
+.btn-success {
+  background-color: #369139;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-success:hover {
+  background-color: #246e27;
+}
+
+.image-container {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.product-image {
+  max-width: 260px;
+  height: auto;
+  border-radius: 1px;
 }
 
 .whatsapp-contact {
   display: flex;
   align-items: center;
-  margin-bottom: 1rem;
+  padding: 15px;
 }
 
 .whatsapp-link {
@@ -18,69 +89,7 @@
 }
 
 .whatsapp-text {
-  font-size: 19px;
-  color: #25D366;
-  margin-left: 5px;
-}
-
-.product-card {
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 10 4px 8px rgb(0, 0, 0);
-  padding: 20px;
-}
-
-.image-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 1rem;
-  border: 1px solid #ddd;
-  padding: 10px;
-  border-radius: 8px;
-  background-color: #f2f2f2;
-}
-
-.product-image {
-  max-width: 100%;
-  max-height: 35vh;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-.field {
-  margin-bottom: 1rem;
-}
-
-.label {
-  font-weight: bold;
-}
-
-.input2, .textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  background-color: #f9f9f9;
-}
-
-.buttonAdd {
-  display: inline-flex;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: #4CAF50;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  text-decoration: none;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-.buttonAdd:hover {
-  background-color: #45a049;
-}
-
-.mt-2 {
-  margin-top: 1rem;
+  font-size: 18px;
+  color: #25d366;
+  margin-left: 0.5rem;
 }
