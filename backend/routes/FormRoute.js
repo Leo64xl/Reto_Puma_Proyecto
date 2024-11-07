@@ -6,7 +6,7 @@ import {
     updateForm,
     deleteForm,
 } from "../controllers/Forms.js";
-import { verifyUser } from "../middleware/AuthUser.js";
+import { adminOnly, verifyUser } from "../middleware/AuthUser.js";
 import ExcelJS from "exceljs";  
 import Forms from "../models/FormModel.js"; 
 
@@ -18,7 +18,7 @@ router.post('/forms', verifyUser, createForm);
 router.patch('/forms/:id', verifyUser, updateForm);
 router.delete('/forms/:id', verifyUser, deleteForm);
 
-router.get('/download-excel', verifyUser, async (req, res) => {
+router.get('/download-excel', verifyUser, adminOnly, async (req, res) => {
     try {
         const forms = await Forms.findAll();
 
@@ -55,7 +55,7 @@ router.get('/download-excel', verifyUser, async (req, res) => {
     }
 });
 
-router.get('/form-stats/category', verifyUser, async (req, res) => {
+router.get('/form-stats/category', verifyUser, adminOnly, async (req, res) => {
     try {
         const forms = await Forms.findAll();
         const categoryCounts = forms.reduce((acc, form) => {
@@ -69,7 +69,7 @@ router.get('/form-stats/category', verifyUser, async (req, res) => {
     }
 });
 
-router.get('/form-stats/talla', verifyUser, async (req, res) => {
+router.get('/form-stats/talla', verifyUser, adminOnly, async (req, res) => {
     try {
         const forms = await Forms.findAll();
         const tallaCounts = forms.reduce((acc, form) => {
@@ -83,7 +83,7 @@ router.get('/form-stats/talla', verifyUser, async (req, res) => {
     }
 });
 
-router.get('/form-stats/team', verifyUser, async (req, res) => {
+router.get('/form-stats/team', verifyUser, adminOnly, async (req, res) => {
     try {
         const forms = await Forms.findAll();
         const teamCounts = forms.reduce((acc, form) => {
@@ -97,7 +97,7 @@ router.get('/form-stats/team', verifyUser, async (req, res) => {
     }
 });
 
-router.get('/form-stats/origin', verifyUser, async (req, res) => {
+router.get('/form-stats/origin', verifyUser, adminOnly, async (req, res) => {
     try {
         const forms = await Forms.findAll();
         const originCounts = forms.reduce((acc, form) => {
