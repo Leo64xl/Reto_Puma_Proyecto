@@ -1,9 +1,10 @@
 import React from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate, Link } from 'react-router-dom';
 import logo1 from '../logo1.png';
 import "../styles/Navbar.css"; 
 import { useDispatch, useSelector } from 'react-redux';
 import { LogOut, reset } from "../features/authSlice";
+import { IoHome } from 'react-icons/io5';
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -34,6 +35,9 @@ const Navbar = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
+          <Link to={"/dashboard"} className="btn btn-outline-light me-2">
+            <IoHome/>
+          </Link>
             {user && (
               <li className="nav-item">
                 <button onClick={logout} className="btn btn-outline-light">

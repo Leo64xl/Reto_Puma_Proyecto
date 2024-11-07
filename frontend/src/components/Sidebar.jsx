@@ -44,7 +44,7 @@ const Sidebar = ({ onFormUpdate }) => {
           <li>
             <div className="dashboardC">
               <NavLink to={"/dashboard"} className="nav-link">
-                <IoHome /> Home
+                <IoHome /> Inicio
               </NavLink>
             </div>
           </li>

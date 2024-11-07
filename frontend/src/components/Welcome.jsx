@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+//import { useSelector } from 'react-redux';
 import '../styles/Welcome.css';
 import Sponsor from './patrocinadores/Sponsor';
 import Footer from './Footer/Footer';

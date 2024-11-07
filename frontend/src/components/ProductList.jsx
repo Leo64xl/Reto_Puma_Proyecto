@@ -46,13 +46,7 @@ const ProductList = () => {
             <Link to="/products/add" className="btn btn-add-product mb-3">Añadir Producto <IoAddCircle /></Link>
           </>
         )}
-
-        {user && user.role === 'user' && (
-          <>
-            <Link to="/dashboard" className="btn btn-success mb-3"><IoHome /></Link>
-          </>
-        )}
-
+        
         <div className="row">
           {products.map((product) => (
             <div className="col-md-3 mb-4 mt-2" key={product.id}>
