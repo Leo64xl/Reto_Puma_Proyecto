@@ -27,7 +27,7 @@ const Sidebar = ({ onFormUpdate }) => {
       console.error("Failed to fetch user forms:", error);
     }
   };
- 
+
   const logout = () => {
     dispatch(LogOut());
     dispatch(reset());
@@ -35,22 +35,22 @@ const Sidebar = ({ onFormUpdate }) => {
   };
 
   return (
-    <div style={{backgroundColor: '#0A0A0A'}}>
-      <aside className="menuPrincipal" style={{backgroundColor: '#0A0A0A'}}>
+    <div className="sidebar-container">
+      <aside className="menuPrincipal">
         <div className="generalC">
           <p className="menu-label">General</p>
         </div>
         <ul className="menu-list">
           <li>
             <div className="dashboardC">
-              <NavLink to={"/dashboard"} style={{color: '#ffffffde'}}>
+              <NavLink to={"/dashboard"} className="nav-link">
                 <IoHome /> Home
               </NavLink>
             </div>
           </li>
           <li>
             <div className="productsC">
-              <NavLink to={"/products"} className="productsM" style={{color: '#ffffffde'}}>
+              <NavLink to={"/products"} className="nav-link">
                 <IoPricetag /> Productos
               </NavLink>
             </div>
@@ -58,11 +58,11 @@ const Sidebar = ({ onFormUpdate }) => {
           <li>
             <div className="FormsC">
               {user && user.role === 'user' && userForms.length > 0 ? (
-                <NavLink to={"/forms/register"} className="productsM" style={{color: '#ffffffde'}}>
+                <NavLink to={"/forms/register"} className="nav-link">
                   <IoDocumentText /> Mi Registro
                 </NavLink>
               ) : (
-                <NavLink to={"/forms/register"} className="productsM" style={{color: '#ffffffde'}}>
+                <NavLink to={"/forms/register"} className="nav-link">
                   <IoPersonAdd /> Registrate
                 </NavLink>
               )}
@@ -78,8 +78,8 @@ const Sidebar = ({ onFormUpdate }) => {
             <ul className="menu-list">
               <li>
                 <div className="usersC">
-                  <NavLink to={"/users"} className="usersM" style={{color: '#ffffffde'}}>
-                    <IoConstruct /> Control Usuarios
+                  <NavLink to={"/users"} className="nav-link">
+                    <IoConstruct /> Perfiles
                   </NavLink>
                 </div>
               </li>
@@ -88,8 +88,8 @@ const Sidebar = ({ onFormUpdate }) => {
             <ul className="menu-list">
               <li>
                 <div className="FormsC">
-                  <NavLink to={"/forms/view/admin"} className="usersM" style={{color: '#ffffffde'}}>
-                    <IoArchive /> Reporte Registros
+                  <NavLink to={"/forms/view/admin"} className="nav-link">
+                    <IoArchive /> Reportes
                   </NavLink>
                 </div>
               </li>
@@ -98,8 +98,8 @@ const Sidebar = ({ onFormUpdate }) => {
             <ul className="menu-list">
               <li>
                 <div className="FormsC">
-                  <NavLink to={"/forms/view/admin/graphics"} className="usersM" style={{color: '#ffffffde'}}>
-                    <IoAnalytics /> Graficas Forms
+                  <NavLink to={"/forms/view/admin/graphics"} className="nav-link">
+                    <IoAnalytics /> Estadisticas
                   </NavLink>
                 </div>
               </li>
@@ -113,8 +113,7 @@ const Sidebar = ({ onFormUpdate }) => {
         <ul className="buttonMenu">
           <li>
             <button onClick={logout} className="buttonM">
-              <IoLogOut />
-                Cerrar Sesion
+              <IoLogOut /> Cerrar Sesión
             </button>
           </li>
         </ul>

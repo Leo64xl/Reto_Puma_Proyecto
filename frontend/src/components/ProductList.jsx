@@ -43,7 +43,7 @@ const ProductList = () => {
 
         {user && user.role === 'admin' && (
           <>
-            <Link to="/products/add" className="btn btn-success mb-3">Añadir Producto <IoAddCircle /></Link>
+            <Link to="/products/add" className="btn btn-add-product mb-3">Añadir Producto <IoAddCircle /></Link>
           </>
         )}
 
@@ -69,12 +69,12 @@ const ProductList = () => {
                 </div>
                 {user && user.role === 'admin' && (
                   <div className="card-footer d-flex justify-content-between" style={{backgroundColor: '#000000'}}>
-                    <Link to={`/products/edit/${product.uuid}`} className="btn btn-primary me-2">
+                    <Link to={`/products/edit/${product.uuid}`} className="btn btn-edit-product me-2">
                       Editar
                     </Link>
                     <button
                       onClick={() => handleDelete(product.uuid, product.name)}
-                      className="btn btn-danger ms-0" 
+                      className="btn btn-delete-product ms-0" 
                     >
                       Eliminar
                     </button>

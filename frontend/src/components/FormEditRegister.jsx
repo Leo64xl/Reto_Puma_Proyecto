@@ -77,8 +77,8 @@ const FormEditRegister = () => {
 
   return (
     <div className="form-edit-register-container">
-      <h1 className="title mt-1" style={{ color: '#E3B04B' }}>Editar Registro</h1>
-      <h2 className="subtitle mt-1" style={{ color: '#ffffff' }}>Datos Personales de {nameUser} | {nameForm}</h2>
+      <h1 className="title mt-5" style={{ color: '#E3B04B' }}>Editar Registro</h1>
+      <h2 className="subtitle mt-1" style={{ color: '#ffffff' }}>Datos Personales de {nameUser} | Competencia {nameForm}</h2>
       <div className="card bg-dark text-white">
         <div className="card-body">
           <form onSubmit={updateForm}>

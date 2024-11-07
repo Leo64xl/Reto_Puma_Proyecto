@@ -1,66 +1,89 @@
+.sidebar-container {
+  background-color: #0a0a0a;
+  padding: 20px;
+}
 
 .menuPrincipal {
-    margin-left: 15px;
-    background-color: #0a0a0a;
+  background-color: #0a0a0a;
 }
+
+.generalC,
+.adminC,
+.settingsC {
+  font-weight: bold;
+  font-size: 17px;
+  color: #e3b04b;
+  padding-bottom: 6px;
+  margin-bottom: 10px;
+}
+
+.dashboardC,
+.productsC,
+.FormsC,
+.usersC {
+   color: #ffffffec;
+   margin-left: 5px;
+} 
 
 .generalC {
-    font-weight: bold;
-    font-size: 15px;
-    color: #e3b04b;
-    padding-block-end: 12px;
+  margin-top: 10px;
 }
 
-.dashboardC {
-    padding: 2px;
-    font-size: 15px;
-    margin-left: 5px;
-    padding-block-end: 10px;
-
+.menu-list {
+  list-style: none;
+  padding: 0;
 }
 
-.productsC {
-    padding: 2px;
-    margin-left: 5px;
-    font-size: 15px;
-    padding-block-end: 10px;
+.menu-list li {
+  margin-bottom: 15px;
 }
 
-.adminC {
-    margin-top: 5px;
-    font-weight: bold;
-    font-size: 15px;
-    color:#e3b04b;
-    padding-block-end: 12px;
+.nav-link {
+  color: #ffffffde;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
 }
 
-.usersC {
-    margin-left: 5px;
-    font-size: 15px;
-    padding-block-end: 12px;
+.nav-link:hover {
+  color: #e3b04b;
 }
 
-.FormsC {
-    margin-left: 5px;
-    font-size: 15px;
-    padding-block-end: 12px;
+.buttonM {
+  background-color: #0000006e;
+  border: none;
+  color: #ffffff;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  border: 2px solid rgba(255, 255, 255, 0.144);
 }
 
-.settingsC {
-    margin-top: 5px;
-    font-weight: bold;
-    font-size: 15px;
-    color:#e3b04b;
-    padding-block-end: 12px;
+.buttonM::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: rgba(255, 255, 255, 0.041);
+  transition: all 0.3s;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
 }
 
-.buttonM {   
-    margin-left: 5px;
-    font-size: 15px;
-    padding-block-end: 12px;
-    color: #ffffffde;
+.buttonM:hover::before {
+  transform: translate(-50%, -50%) scale(1);
 }
 
-
-
-
+.buttonM:hover {
+  background-color: #000000e8;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.123);
+}

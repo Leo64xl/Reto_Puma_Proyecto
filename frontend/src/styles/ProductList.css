@@ -3,7 +3,7 @@
 }
 
 .product-list-container {
-  padding: 5px;
+  padding: 20px;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -55,53 +55,173 @@
   border-bottom-right-radius: 8px;
 }
 
-.btn-primary {
-  background-color: #c4912d;
-  color: #000000;
-  border: none;
-}
-
-.btn-primary:hover {
-  background-color: #c7932d;
-  color: #000000c7;
-}
-
-.btn-danger {
-  background-color: #e74c3c;
-  border: none;
-}
-
-.btn-danger:hover {
-  background-color: #c0392b;
-}
-
-.alert-success {
-  background-color: #c7932d;
-  color: #000000;
-  padding: 10px;
-  border-radius: 5px;
-  margin-top: 20px;
-  text-align: center;
-}
-
-.btnBuyProduct {
-  background-color: #c78e1c;
-  color: #000000;
+.btn-add-product {
+  background-color: #dfaa40;
+  color: #080808;
   border: none;
   border-radius: 5px;
   font-size: 17px;
-  padding: 5px;
+  width: 200px;
+  font-weight: bold;
+  padding: 10px 20px;
   margin-top: 5px;
   margin-block-end: 5px;
-  width: 100%;
-  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center; 
   text-decoration: none; 
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-add-product::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: #dfaa40;
+  transition: all 0.3s;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.btn-add-product:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.btn-add-product:hover {
+  background-color: #c5922d;
+  color: #000000fd;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #dfaa40;
+}
+
+.btn-edit-product {
+  background-color: #0c94ac;
+  color: #080808;
+  border: none;
+  border-radius: 5px;
+  font-size: 17px;
+  font-weight: bold;
+  padding: 10px 20px;
+  margin-top: 5px;
+  margin-block-end: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  text-decoration: none; 
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-edit-product::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: #0c94ac;
+  transition: all 0.3s;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.btn-edit-product:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.btn-edit-product:hover {
+  background-color: #077d92;
+  color: #000000fd;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #0c94ac;
+}
+
+.btn-delete-product {
+  background-color: #c23121;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  font-size: 17px;
+  font-weight: bold;
+  padding: 10px 20px;
+  margin-top: 5px;
+  margin-block-end: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  text-decoration: none; 
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-delete-product::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: #c23121;
+  transition: all 0.3s;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.btn-delete-product:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.btn-delete-product:hover {
+  background-color: #c0392b;
+  color: #ffffff;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #971608;
+}
+
+.btnBuyProduct {
+  background-color: #c78e1c;
+  color: #080808;
+  border: none;
+  border-radius: 5px;
+  font-size: 17px;
+  font-weight: bold;
+  padding: 10px 20px;
+  margin-top: 5px;
+  margin-block-end: 5px;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  text-decoration: none; 
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btnBuyProduct::before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: #c78e1c;
+  transition: all 0.3s;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+}
+
+.btnBuyProduct:hover::before {
+  transform: translate(-50%, -50%) scale(1);
 }
 
 .btnBuyProduct:hover {
   background-color: #b68014;
   color: #000000fd;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #a07011;
 }

@@ -36,7 +36,7 @@ const FormBuyProduct = () => {
 
   return (
     <div className="form-buy-product-container">
-      <h1 className="title mt-1" style={{ color: '#E3B04B' }}>Producto</h1>
+      <h1 className="title mt-5" style={{ color: '#E3B04B' }}>Producto</h1>
       <h2 className="subtitle mt-1" style={{ color: '#ffffff' }}>Comprar Producto {name}</h2>
       <div className="card bg-dark text-white">
         <div className="card-body">
