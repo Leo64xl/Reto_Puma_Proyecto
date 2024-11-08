@@ -1,16 +1,23 @@
-/* Navbar Styles */
 .navbar-container {
-  width: 100%;
-}
-
-.navbar {
-  background-color: #0a0a0a;
   width: 100%;
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1000;
+  z-index: 1000; 
 }
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: transparent; 
+  transition: background-color 0.3s ease; 
+}
+
+/*.navbar.solid {
+  background-color: #161616; 
+}*/
 
 .logo-container {
   display: flex;
@@ -36,7 +43,7 @@
 }
 
 .menu a {
-  font-size: 1.1rem;
+  font-size: 17px;
   font-weight: 500;
   color: #e3b04b; 
   text-decoration: none;
@@ -104,7 +111,7 @@
   position: absolute;
   right: 0px;
   top: 50%;
-  transform: translateY(-15%);
+  transform: translateY(-11%);
 }
 
 .navbar-burger span {
