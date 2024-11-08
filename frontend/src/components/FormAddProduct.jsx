@@ -51,6 +51,7 @@ const FormAddProduct = () => {
               <label className="form-label"><IoDownload /> Cargar Imagen:</label>
               <input 
                 type='file' 
+                required
                 className="form-control"
                 accept="image/*" 
                 onChange={(e) => setImage(e.target.files[0])} 
@@ -60,6 +61,7 @@ const FormAddProduct = () => {
                 <label className="form-label"><IoCube /> Nombre del Producto:</label>
                 <input 
                   type='text' 
+                  required
                   className="form-control"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
@@ -70,6 +72,7 @@ const FormAddProduct = () => {
                 <label className="form-label"><IoPricetag /> Precio:</label>
                 <input 
                   type='text' 
+                  required
                   className="form-control"
                   value={price}
                   onChange={(e) => setPrice(e.target.value)}
@@ -80,6 +83,7 @@ const FormAddProduct = () => {
                 <label className="form-label"><IoDocumentText /> Descripción:</label>
                 <input 
                   type='text' 
+                  required
                   className="form-control"
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
@@ -90,6 +94,7 @@ const FormAddProduct = () => {
                 <label className="form-label"><IoCheckmarkCircle /> Disponible:</label>
                 <select 
                   className="form-select"
+                  required
                   value={available} 
                   onChange={(e) => setAvailable(e.target.value)}
                 >
