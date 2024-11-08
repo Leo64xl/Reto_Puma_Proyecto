@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { LoginUser, reset } from "../features/authSlice";
 import eye from "../assets/eye.svg"; 
 import image1 from "../assets/img/img_1.jpeg";
@@ -129,8 +129,8 @@ const Login = () => {
                                         onClick={togglePasswordVisibility}
                                     />
                                 </div>
-                            </div>
-                            <div className="text-wrapper-3">¿Has olvidado tu contraseña?</div>
+                                
+                            </div>                            
                         </div>
                     </div>
                     {/* Mensaje de error */}
@@ -145,8 +145,10 @@ const Login = () => {
                         {/* Registro de cuenta */}
                         <p className="a-n-no-tienes-cuenta">
                             <span className="span">¿Aún no tienes cuenta? </span>
-                            {/* Para mandar al regidtro */}
-                            <span className="text-wrapper-5">Crea una ahora</span>
+                            {/* Para mandar al registro */}
+                            <Link to ="/register">
+                                <span className="text-wrapper-5">Crea una ahora</span>
+                            </Link>
                         </p>
                     </div>
                 </form>
