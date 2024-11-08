@@ -1,16 +1,41 @@
 import React from "react";
 import "./Sponsor.css";
+import sponsor1 from "../../assets/PatrocinadoresIMG/logo farmaymás.png";
+import sponsor2 from "../../assets/PatrocinadoresIMG/logo perez.png";
+import sponsor3 from "../../assets/PatrocinadoresIMG/logoGORDOBIKEPNG.png";
+import sponsor4 from "../../assets/PatrocinadoresIMG/logoagustinos.png";
+import sponsor5 from "../../assets/PatrocinadoresIMG/logoboxthas.png";
+import sponsor6 from "../../assets/PatrocinadoresIMG/logomagdalena.png";
+import sponsor7 from "../../assets/PatrocinadoresIMG/logonora.png";
+import sponsor8 from "../../assets/PatrocinadoresIMG/logopillos.png";
+import sponsor9 from "../../assets/PatrocinadoresIMG/logosubaru.png";
+
+const sponsors = [
+  sponsor1,
+  sponsor2,
+  sponsor3,
+  sponsor4,
+  sponsor5,
+  sponsor6,
+  sponsor7,
+  sponsor8,
+  sponsor9,
+];
 
 const Sponsor = () => {
   return (
     <div className="Sponsor">
       <div className="container">
         <span>Nuestros Patrocinadores</span>
-        <img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/facebook2x.188a797.png" alt="" />
-        <img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/google2x.06d74c8.png" alt="" />
-        <img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/netflix2x.887e47e.png" alt="" />
-        <img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/pandg2x.6dc32e4.png" alt="" />
-        <img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/paypal2x.22728be.png" alt="" />
+        <div className="slider">
+          <div className="slide-track">
+            {sponsors.concat(sponsors).map((sponsor, index) => (
+              <div className="slide" key={index}>
+                <img src={sponsor} alt={`Patrocinador ${index + 1}`} />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

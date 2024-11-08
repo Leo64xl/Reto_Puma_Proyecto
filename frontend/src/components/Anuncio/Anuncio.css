@@ -1,0 +1,84 @@
+.anuncio {
+  padding: 40px 20px;
+  background-color: #f8f9fa;
+}
+
+.anuncio-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap; /* Para adaptarse en pantallas pequeñas */
+}
+
+.anuncio-imagen {
+  flex: 1 1 300px; /* Crece y se reduce, base de 300px */
+  max-width: 500px;
+  padding: 20px;
+}
+
+.anuncio-imagen img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.anuncio-texto {
+  flex: 1 1 300px;
+  max-width: 500px;
+  padding: 20px;
+  text-align: center;
+}
+
+.anuncio-texto h1 {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.anuncio-texto p {
+  font-size: 1.2em;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.anuncio-boton {
+  background-color: #e3b04b; /* Color similar al amarillo usado */
+  color: #fff;
+  padding: 15px 30px;
+  font-size: 1em;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.anuncio-boton:hover {
+  background-color: #c9943b;
+}
+
+/* Estilos Responsivos */
+@media (max-width: 768px) {
+  .anuncio-container {
+    flex-direction: column;
+  }
+
+  .anuncio-texto h1 {
+    font-size: 2em;
+  }
+}
+
+@media (max-width: 480px) {
+  .anuncio-texto h1 {
+    font-size: 1.8em;
+  }
+
+  .anuncio-texto p {
+    font-size: 1em;
+  }
+
+  .anuncio-boton {
+    padding: 12px 25px;
+    font-size: 0.9em;
+  }
+}
