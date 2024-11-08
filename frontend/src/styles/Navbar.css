@@ -11,13 +11,20 @@
   align-items: center;
   justify-content: space-between;
   padding: 10px 20px;
-  background-color: transparent; 
   transition: background-color 0.3s ease; 
 }
 
-/*.navbar.solid {
-  background-color: #161616; 
-}*/
+.navbar.solid {
+  background-color: #0a0a0a00; 
+}
+
+.navbar.transparent {
+  background-color: #0a0a0a; 
+}
+
+.navbar.solid {
+  background-color: #000000; 
+}
 
 .logo-container {
   display: flex;
@@ -172,5 +179,65 @@
   .menu.is-active {
     display: flex;
     flex-direction: column;
+  }
+}
+
+/* Estilos para la clase loadingMsg */
+.loadingMsg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 2rem;
+  color: #e3b04b;
+  font-family: 'Mulish', sans-serif;
+  animation: fadeIn 1.5s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Animación para las letras */
+.loadingMsg span {
+  display: inline-block;
+  animation: bounce 1.5s infinite;
+}
+
+.loadingMsg span:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.loadingMsg span:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.loadingMsg span:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.loadingMsg span:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+.loadingMsg span:nth-child(6) {
+  animation-delay: 0.5s;
+}
+
+.loadingMsg span:nth-child(7) {
+  animation-delay: 0.6s;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
   }
 }

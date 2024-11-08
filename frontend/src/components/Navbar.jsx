@@ -35,10 +35,24 @@ const Navbar = () => {
   };
 
   useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  /*useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, []);*/
 
   const renderMenu = () => {
     if (user?.role === "admin" && !restrictedRoutes.admin.includes(location.pathname)) {
@@ -63,7 +77,7 @@ const Navbar = () => {
     return null;
   };
 
-  if (!user) return <div>Cargando...</div>;
+  if (!user) return <div className="loadingMsg">Cargando...</div>;
 
   return (
     <div className="navbar-container">
