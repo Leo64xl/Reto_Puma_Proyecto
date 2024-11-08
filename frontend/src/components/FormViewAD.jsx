@@ -68,7 +68,7 @@ const FormViewAD = () => {
               <th>Apellido</th>
               <th>Email</th>
               <th>Teléfono</th>
-              <th>Acciones</th>
+              <th>Mostrar Registros</th>
             </tr>
           </thead>
 
@@ -81,8 +81,7 @@ const FormViewAD = () => {
                 <td>{form.email}</td>
                 <td>{form.phone}</td>
                 <td>
-                  <Link to={`/forms/view/admin/form/${form.uuid}`} className="btn btn-primary me-2">Ver Registro</Link>
-                  <button onClick={() => handleDelete(form.uuid)} className="btn btn-danger ms-2"><IoTrash /></button>
+                  <Link to={`/forms/view/admin/form/${form.uuid}`} className="btn btn-primary me-2">Mostrar Registro</Link>
                 </td>
               </tr>
             ))}

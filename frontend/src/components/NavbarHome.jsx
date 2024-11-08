@@ -1,83 +1,185 @@
-import React from 'react';
-import { NavLink, useNavigate, Link } from 'react-router-dom';
-import logo1 from '../logo1.png';
-import "../styles/NavbarHome.css"; 
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState, useEffect } from "react";
+import { NavLink, useNavigate, Link, useLocation } from "react-router-dom";
+import logo1 from "../assets/logo1.png";
+import "../styles/NavbarHome.css";
+import { useDispatch, useSelector } from "react-redux";
 import { LogOut, reset } from "../features/authSlice";
-//import axios from 'axios';
 
 const NavbarHome = () => {
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
-    const { user } = useSelector((state) => state.auth);
-    
-    const logout = () => {
-        dispatch(LogOut());
-        dispatch(reset());
-        navigate("/");
-    };
-    
-    if (!user) {
-        return <div>Loading...</div>; 
-    }
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const location = useLocation(); 
+  const { user } = useSelector((state) => state.auth);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
-    return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div className="container-fluid d-flex justify-content-between align-items-center">
-                <div className="d-flex align-items-center">
-                    <NavLink to="/products" className="navbar-brand">
-                        <img src={logo1} className="logo" alt="logo" />
-                    </NavLink>
-                    {user && (
-                        <h2 className="welcome-text ms-0">
-                            ¡Bienvenido de nuevo! {user.name} {user.role === "user" ? ":D" : " Admin🔥"}
-                        </h2>
-                    )}
-                </div>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
+  const logout = () => {
+    dispatch(LogOut());
+    dispatch(reset());
+    navigate("/");
+  };
+
+  // Hook para detectar el desplazamiento de la página
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true); // Se vuelve sólido
+      } else {
+        setIsScrolled(false); // Se vuelve transparente
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Limpiar el evento al desmontar el componente
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  if (!user) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <div className="boxC bg-dark">
+      <nav
+        className={`rectangle ${isScrolled ? "solid" : "transparent"}`}
+        role="navigation"
+        aria-label="main navigation"
+      >
+        <div className="container-fluid d-flex justify-content-between align-items-center">
+          <div className="d-flex align-items-center">
+            <NavLink to="/products" className="navbar-brand">
+              <div className="logoPosition">
+                <img src={logo1} alt="logo" />
+              </div>
+            </NavLink>
+            {user && (
+              <h2 className="welcome-text ms-0">
+                ¡Bienvenido de nuevo! {user && user.name}{" "}
+                {user && user.role === "user" && ":D"}{" "}
+                {user && user.role === "admin" && " Admin🔥"}
+              </h2>
+            )}
+          </div>
+
+          {user && user.role === "admin" && location.pathname != "/products" && (
+            <>
+              {
+               console.log("Hola"+location.pathname) 
+                /* Botones principales de la navbar */}
+              <div className={`divsButtons ${isMenuOpen ? "is-active" : ""}`}>
+                 <Link to="/users">
+                       <div className="div">PERFILES</div>
+                 </Link>
+
+                 <Link to="/forms/register">
+                       <div className="text-wrapper-2">REGISTROS</div>
+                 </Link>
+
+                 <Link to="/forms/view/admin/graphics">
+                      <div className="text-wrapper-3">ESTADISTICAS</div>
+                 </Link>
+
+                 <Link to="/products/add">
+                        <div className="text-wrapper-4">AÑADIR PRODUCTOS</div>
+                 </Link>
+              </div>
+              {/* Botón de Logout */}
+              <div className="bigButtons">
+                <button onClick={logout} className="btn btn-outline-light me-2">
+                  Cerrar Sesión
                 </button>
-                <div className="collapse navbar-collapse" id="navbarNav">
-                    <ul className="navbar-nav ms-auto">      
-                        {user.role === 'user' && (
-                            <>
-                                <Link to="/products" className="btn btn-outline-light me-3">
-                                    ¡Visita nuestro catalogo de Productos!
-                                </Link>
-                                <p className="text-white mt-2 me-3">o bien</p>
-                                <Link to="/forms/register" className="btn btn-outline-light me-2">
-                                    Inicia un registro aquí
-                                </Link>
-                            </>
-                        )}
-                        {user.role === 'admin' && (
-                            <>
-                                <Link to="/users" className="btn btn-outline-light me-3">
-                                    Administrar Perfiles
-                                </Link>
-                                <Link to="/forms/view/admin" className="btn btn-outline-light me-3">
-                                    Ver Registros
-                                </Link>
-                                <Link to="/forms/view/admin/graphics" className="btn btn-outline-light me-3">
-                                    Trafico de Datos
-                                </Link>
-                                <Link to="/products/add" className="btn btn-outline-light me-2">
-                                    Añadir Nuevos Productos
-                                </Link>
-                            </>
-                        )}
-                        {user && (
-                            <li className="nav-item">
-                                <button onClick={logout} className="btn btn-outline-light me-2">
-                                    Cerrar Sesión
-                                </button>
-                            </li>
-                        )}
-                    </ul>
+              </div>
+              {/* Menú hamburguesa para móviles */}
+              <button
+                className="navbar-burger"
+                aria-label="menu"
+                aria-expanded={isMenuOpen ? "true" : "false"}
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+              >
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+              </button>
+              {/* Menú desplegable para pantallas móviles */}
+              {isMenuOpen && (
+                <div className="divsButtons-mobile">
+                <Link to="/users">
+                       <div className="div">PERFILES</div>
+                 </Link>
+
+                 <Link to="/forms/register">
+                       <div className="text-wrapper-2">REGISTROS</div>
+                 </Link>
+
+                 <Link to="/forms/view/admin/graphics">
+                      <div className="text-wrapper-3">ESTADISTICAS</div>
+                 </Link>
+
+                 <Link to="/products/add">
+                        <div className="text-wrapper-4">PRODUCTOS</div>
+                 </Link>
                 </div>
-            </div>
-        </nav>
-    );
+              )}
+            </>
+          )}
+
+          {user && user.role === "user" && (
+            <>
+              {/* Botones principales de la navbar */}
+              <div className={`divsButtons ${isMenuOpen ? "is-active" : ""}`}>
+                  <Link to="/forms/register">
+                     <div className="div">¡INSCRIBETE AHORA!</div>
+                 </Link> 
+
+                 <Link to="/products">
+                      <div className="text-wrapper-2">VISITA NUESTRO CATALOGO</div>
+                </Link>
+
+                <Link to="/products">
+                     <div className="text-wrapper-3">AVISOS Y RUTAS</div>
+                </Link>
+              </div>
+
+              {/* Botón de Logout */}
+              <div className="bigButtons">
+                <button onClick={logout} className="btn btn-outline-light me-2">
+                  Logout
+                </button>
+              </div>
+              {/* Menú hamburguesa para móviles */}
+              <button
+                className="navbar-burger"
+                aria-label="menu"
+                aria-expanded={isMenuOpen ? "true" : "false"}
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+              >
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+              </button>
+              {/* Menú desplegable para pantallas móviles */}
+              {isMenuOpen && (
+                <div className="divsButtons-mobile">
+                  <Link to="/forms/register">
+                      <div className="div">INSCRIBIRME</div>
+                  </Link>
+
+                  <Link to="/products">
+                      <div className="text-wrapper-2">CATALOGO</div>
+                  </Link>
+
+                  <Link to="/products">
+                      <div className="text-wrapper-3">AVISOS</div>
+                  </Link>
+                </div>
+              )}
+            </>
+          )}
+        </div>
+      </nav>
+    </div>
+  );
 };
 
 export default NavbarHome;

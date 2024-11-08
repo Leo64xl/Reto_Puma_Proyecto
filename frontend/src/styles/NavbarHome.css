@@ -24,4 +24,55 @@
   margin: 0;
   font-size: 1.25rem;
   color: #ffffff;
+  
+}
+
+.boxC {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.divsButtons {
+  display: flex;
+  gap: 20px;
+}
+
+.divsButtons-mobile {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.logout-button {
+  background-color: #ff4d4d;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background-color: #ff1a1a;
+}
+
+.navbar-burger {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .navbar-burger {
+    display: block;
+  }
+
+  .divsButtons {
+    display: none;
+  }
+
+  .divsButtons.is-active {
+    display: flex;
+  }
 }

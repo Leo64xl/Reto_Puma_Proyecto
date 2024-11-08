@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { IoPricetag, IoHome, IoLogOut, IoPersonAdd, IoArchive, IoConstruct, IoAnalytics, IoDocumentText } from "react-icons/io5";
+import { IoPricetag, IoHome, IoLogOut, IoCreate, IoArchive, IoAnalytics, IoDocumentText, IoPeople } from "react-icons/io5";
 import "../styles/Sidebar.css";
 import { useDispatch, useSelector } from 'react-redux';
 import { LogOut, reset } from "../features/authSlice";
@@ -59,11 +59,11 @@ const Sidebar = ({ onFormUpdate }) => {
             <div className="FormsC">
               {user && user.role === 'user' && userForms.length > 0 ? (
                 <NavLink to={"/forms/register"} className="nav-link">
-                  <IoDocumentText /> Mi Registro
+                  <IoDocumentText /> Mi Inscripción
                 </NavLink>
               ) : (
                 <NavLink to={"/forms/register"} className="nav-link">
-                  <IoPersonAdd /> Registrate
+                  <IoCreate /> Inscribirme
                 </NavLink>
               )}
             </div>
@@ -79,7 +79,7 @@ const Sidebar = ({ onFormUpdate }) => {
               <li>
                 <div className="usersC">
                   <NavLink to={"/users"} className="nav-link">
-                    <IoConstruct /> Perfiles
+                    <IoPeople /> Perfiles
                   </NavLink>
                 </div>
               </li>

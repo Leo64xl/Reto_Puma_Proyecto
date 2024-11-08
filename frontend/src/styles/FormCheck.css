@@ -1,32 +1,68 @@
-
-.selectOptions3 {
-    position: relative;
-    display: inline-block;
-    width: 100%;
+.body {
+  background-color: #0a0a0a;
 }
 
-.selectOptions3 select {
-    width: 100%;
-    padding: 8px;
-    font-size: 15px;
-    border: 1px solid #00000011;
-    border-radius: 5px;
-    appearance: none; 
-    background-color: #00000013;
-    cursor: pointer;
-    transition: border-color 0.3s ease;
+.form-check-container {
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-.selectOptions3 select:hover {
-    border-color: #00000013; 
+.title {
+  font-size: 2em;
+  font-weight: bold;
+  color: #e3b04b;
+  margin-bottom: 10px;
 }
 
-.selectOptions3::after {
-    content: 'Select One Option ▼'; 
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    transform: translateY(-50%);
-    pointer-events: none; 
-    color: #888;
+.subtitle {
+  font-size: 1.5em;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.card {
+  background-color: #1c1c1c;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-body {
+  padding: 15px;
+  background-color: #000000;
+}
+
+.form-label {
+  font-size: 17px;
+  color: #e3b04b;
+}
+
+.form-control,
+.form-select {
+  background-color: #2c2c2c;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+}
+
+.form-control::placeholder,
+.form-select::placeholder {
+  color: #999999;
+}
+
+.btn-success {
+  background-color: #4caf50;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-success:hover {
+  background-color: #45a049;
 }

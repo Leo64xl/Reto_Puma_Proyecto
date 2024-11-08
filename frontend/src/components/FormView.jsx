@@ -58,18 +58,18 @@ const FormView = () => {
 
       {user && user.role === 'user' && (
         <>
-          <h1 className="title mt-1" style={{ color: '#E3B04B' }}>Registro</h1>
-          <h2 className="subtitle mt-1" style={{ color: '#ffffff' }}>Mi Regristro {user && user.name}</h2>
+          <h1 className="title mt-1" style={{ color: '#E3B04B' }}>Inscripción</h1>
+          <h2 className="subtitle mt-1" style={{ color: '#ffffff' }}>Mi Inscripción {user && user.name}</h2>
         </>
       )}
 
       {user && user.role === 'user' && userForms.length === 0 && (
-        <Link to="/forms/register/add" className="btn btn-success mb-3">Nuevo Registro <IoAddCircle /></Link>
+        <Link to="/forms/register/add" className="btn btn-success mb-3">Realizar Inscripción <IoAddCircle /></Link>
       )}
 
       {user && user.role === 'user' && userForms.length > 0 && (
         <div className="register-message">
-         Ya has realizado un registro<IoCheckmarkCircle className="checkmark-icon" />
+         Ya has realizado una Inscripción<IoCheckmarkCircle className="checkmark-icon" />
         </div>
       )}
 
@@ -82,7 +82,7 @@ const FormView = () => {
               <th>Apellido</th>
               <th>Categoria</th>
               <th>Equipo</th>
-              <th>Acciones Para Registro</th>
+              <th>Acciones Inscripción</th>
             </tr>
           </thead>
 
@@ -97,7 +97,7 @@ const FormView = () => {
                 <td>
                   {user && (user.role === 'admin' || form.userId === user.id) && (
                     <>
-                      <Link to={`/forms/register/edit/${form.uuid}`} className="btn btn-primary me-2">Editar Registro</Link>
+                      <Link to={`/forms/register/edit/${form.uuid}`} className="btn btn-primary me-2">Editar Inscripción</Link>
                       <button onClick={() => handleDelete(form.uuid)} className="btn btn-danger ms-2"><IoTrash /></button>
                     </>
                   )}
