@@ -32,12 +32,12 @@ const FormBuyProduct = () => {
   }, [id]);
 
   const whatsappNumber = '7298027939';
-  const message = `Hola, estoy interesado en el producto ${name}, ${description}. Puedes darme más información sobre él?`;
+  const message = `Hola, estoy interesado en el producto ${name}. ${description}. ¿Podrías darme más información sobre él?`;
 
   return (
     <div className="form-buy-product-container">
-      <h1 className="title mt-15" style={{ color: '#E3B04B' }}>Producto</h1>
-      <h2 className="subtitle mt-1" style={{ color: '#ffffff' }}>Producto: {name} | Precio: ${price}</h2>
+      <h1 className="title mt-15" style={{ color: '#E3B04B' }}>Producto {name}</h1>
+      <h2 className="subtitle mt-1" style={{ color: '#ffffff' }}>Producto: {name} | Precio: ${price} mx</h2>
       <div className="card bg-dark text-white">
         <div className="card-body">
           <form className="form-buy-product">
@@ -51,7 +51,7 @@ const FormBuyProduct = () => {
               >
                 <IoLogoWhatsapp size={42} color='#ffffff'/> 
                 <span className="whatsapp-text">
-                  Contáctanos vía WhatsApp para más información sobre este producto.
+                 Pregunta por este producto en WhatsApp, haz clic aquí.
                 </span>
               </a>
             </div>
@@ -79,7 +79,7 @@ const FormBuyProduct = () => {
               <input 
                 type='text' 
                 className="form-control text-black"
-                value={`$${price}`}
+                value={`$${price} mx`}
                 disabled
               />
             </div>

@@ -3,8 +3,8 @@
 }
 
 .product-list-container {
-  padding: 20px;
-  max-width: 1200px;
+  padding: 18px;
+  max-width: 1100px;
   margin: 0 auto;
   margin-top: 65px;
 }
@@ -19,20 +19,18 @@
 .subtitle {
   font-size: 1.5em;
   color: #ffffff;
-  margin-bottom: 30px;
 }
 
 .card {
   background-color: #1c1c1c;
   border: none;
-  border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
 }
 
 .card:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
@@ -50,15 +48,13 @@
 }
 
 .card-title {
-  font-size: 19px;
-  margin-bottom: 5px;
+  font-size: 22px;
   font-weight: bold;
   color: #e3b04b;
 }
 
 .card-text {
-  font-size: 17.5px;
-  margin-bottom: 5px;
+  font-size: 17px;
   color: #ffffff;
 }
 
@@ -108,7 +104,7 @@
 .btn-add-product:hover {
   background-color: #c5922d;
   color: #000000fd;
-  transform: scale(1.05);
+  transform: scale(1.0);
   box-shadow: 0 0 10px #dfaa40;
 }
 

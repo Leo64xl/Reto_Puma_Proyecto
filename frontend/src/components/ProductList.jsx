@@ -38,8 +38,8 @@ const ProductList = () => {
   return (  
     <div className="product-list-container">
       <div>
-        <h1 className="title" style={{ color: '#E3B04B' }}>Productos</h1>
-        <h2 className="subtitle" style={{ color: '#ffffff' }}>Catalogo De Productos</h2>
+        <h1 className="title mt-1" style={{ color: '#E3B04B' }}>Productos</h1>
+        <h2 className="subtitle mt-1" style={{ color: '#ffffff' }}>Catalogo De Productos</h2>
 
         {user && user.role === 'admin' && (
           <>
@@ -49,8 +49,8 @@ const ProductList = () => {
         
         <div className="row">
           {productList.map((product) => (
-            <div className="col-md-3 mb-4 mt-2" key={product.id}>
-              <div className="card h-100">
+            <div className="col-md-3 mb-4 " key={product.id}>
+              <div className="card h-22">
                 <img
                   src={product.url}
                   alt="Image"
@@ -58,8 +58,8 @@ const ProductList = () => {
                 />
                 <div className="card-body">
                   <h5 className="card-title">{product.name}</h5>
-                  <p className="card-text">{product.available} Disponibles</p>
-                  <p className="card-text">Precio: ${product.price}</p>
+                  <p className="card-text">Precio: ${product.price} mx</p>
+                  <p className="card-text">Disponibes: {product.available}</p>
                 </div>
                 {user && user.role === 'admin' && (
                   <div className="card-footer d-flex justify-content-between">
