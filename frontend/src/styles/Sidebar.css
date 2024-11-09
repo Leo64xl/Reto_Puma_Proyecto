@@ -1,11 +1,40 @@
 .sidebar-container {
   background-color: #0a0a0a;
   padding: 20px;
-  margin-top: 70px;
+  margin-top: 80px;
+  position: relative;
+  margin-left: 10px;
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  color: #e3b04b;
+  font-size: 2rem;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1001;
+  display: none; /* Ocultar el ícono de menú por defecto */
 }
 
 .menuPrincipal {
   background-color: #0a0a0a;
+  width: 240px; /* Ajusta el ancho del sidebar */
+  height: 100vh; /* Asegura que el sidebar ocupe toda la altura de la pantalla */
+  position: fixed; /* Fija el sidebar en su posición */
+  top: 0;
+  left: 0;
+  display: none; /* Ocultar la barra lateral por defecto */
+  transition: transform 0.3s ease;
+  z-index: 1000; /* Asegura que el sidebar esté por encima de otros elementos */
+  margin-top: 75px;
+}
+
+.menuPrincipal.open {
+  display: block; /* Mostrar la barra lateral cuando esté abierta */
+  transform: translateX(0);
 }
 
 .generalC,
@@ -16,18 +45,19 @@
   color: #e3b04b;
   padding-bottom: 6px;
   margin-bottom: 10px;
+  margin-left: 22px;
 }
 
 .dashboardC,
 .productsC,
 .FormsC,
 .usersC {
-   color: #ffffffec;
-   margin-left: 5px;
-} 
+  color: #ffffffec;
+  margin-left: 28px;
+}
 
 .generalC {
-  margin-top: 10px;
+  margin-top: 25px;
 }
 
 .menu-list {
@@ -65,6 +95,7 @@
   overflow: hidden;
   text-decoration: none;
   border: 2px solid rgba(255, 255, 255, 0.144);
+  margin-left: 15px;
 }
 
 .buttonM::before {
@@ -87,4 +118,28 @@
 .buttonM:hover {
   background-color: #000000e8;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.123);
+}
+
+/* Media query para dispositivos móviles */
+@media (max-width: 1768px) {
+  .menu-toggle {
+    display: block; /* Mostrar el ícono de menú en dispositivos móviles */
+  }
+
+  .menuPrincipal {
+    display: none; /* Ocultar la barra lateral por defecto en dispositivos móviles */
+  }
+
+  .menuPrincipal.open {
+    display: block; /* Mostrar la barra lateral cuando esté abierta en dispositivos móviles */
+  }
+}
+
+/* Ajustar el contenedor principal cuando el sidebar esté abierto */
+.main-content {
+  transition: margin-left 0.3s ease;
+}
+
+.main-content.sidebar-open {
+  margin-left: 250px; /* Ajusta este valor según el ancho del sidebar */
 }

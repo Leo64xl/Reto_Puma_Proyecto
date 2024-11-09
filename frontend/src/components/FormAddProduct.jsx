@@ -91,17 +91,15 @@ const FormAddProduct = () => {
                 />
               </div>
               <div className="mb-3">
-                <label className="form-label"><IoCheckmarkCircle /> Disponible:</label>
-                <select 
-                  className="form-select"
+                <label className="form-label"><IoCheckmarkCircle /> Unidades Disponibles:</label>
+                <input
+                  type='text' 
+                  className="form-control"
                   required
                   value={available} 
                   onChange={(e) => setAvailable(e.target.value)}
-                >
-                  <option>Selecciona una opcion</option>
-                  <option value="Si">Si</option>
-                  <option value="No">No</option>
-                </select>
+                  placeholder='Unidades Disponibles'
+                />                
               </div>            
             <button type='submit' className='btn btn-success mt-2'>Guardar Producto</button>
           </form>

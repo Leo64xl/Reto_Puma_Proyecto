@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../styles/FormCheck.css';
-import { IoMail, IoShirt, IoPeople, IoCall, IoLocation, IoTrophy, IoPerson, IoCalendar, IoList, IoBag } from 'react-icons/io5';
+import { IoMail, IoShirt, IoPeople, IoCall, IoLocation, IoTrophy, IoPerson, IoCalendar, IoList, IoBag, IoAddCircleSharp, IoCheckmarkCircle } from 'react-icons/io5';
 import { useSelector } from 'react-redux';
 
 const FormCheck = () => {
@@ -52,8 +52,8 @@ const FormCheck = () => {
 
   return (
     <div className="form-check-container">
-      <h1 className="title mt-1" style={{ color: '#E3B04B' }}>Inscribirme</h1>
-      <h2 className="subtitle mt-1" style={{ color: '#ffffff' }}>Crear Nueva Inscripción</h2>
+      <h1 className="title mt-1" style={{ color: '#E3B04B' }}>Inscripción</h1>
+      <h2 className="subtitle mt-1" style={{ color: '#ffffff' }}>¡Inscribete Ahora!</h2>
       <div className="card bg-dark text-white">
         <div className="card-body">
           <form onSubmit={saveForm}>
@@ -271,7 +271,7 @@ const FormCheck = () => {
                 <option value="Zacatecas">Zacatecas</option>
               </select>
             </div>
-            <button type='submit' className='btn btn-success mt-2'>Guardar Inscripción</button>
+            <button type='submit' className='btn btn-success mt-2'>Crear Inscripción <IoCheckmarkCircle/></button>
           </form>
         </div>
       </div>

@@ -4,9 +4,10 @@ import logo1 from "../logo1.png";
 import "../styles/Navbar.css";
 import { useDispatch, useSelector } from "react-redux";
 import { LogOut, reset } from "../features/authSlice";
-import { IoHome } from "react-icons/io5";
+import { IoHome, IoMenu } from "react-icons/io5";
+import Sidebar from "../components/Sidebar";
 
-const Navbar = () => {
+const Navbar = ({ toggleSidebar }) => {
   const dispatch = useDispatch();
   const location = useLocation();
   const navigate = useNavigate();
@@ -14,6 +15,7 @@ const Navbar = () => {
   const { user } = useSelector((state) => state.auth);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const restrictedRoutes = useMemo(() => ({
     admin: [
@@ -48,12 +50,6 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  /*useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);*/
-
   const renderMenu = () => {
     if (user?.role === "admin" && !restrictedRoutes.admin.includes(location.pathname)) {
       return (
@@ -83,10 +79,13 @@ const Navbar = () => {
     <div className="navbar-container">
       <nav className={`navbar ${isScrolled ? "solid" : "transparent"}`}>
         <div className="container-fluid">
+          <button className="menu-toggle" onClick={toggleSidebar}>
+            <IoMenu />
+          </button>
           <div className="logo-container">
-            <NavLink to="/dashboard" className="navbar-brand">
+            <div className="navbar-brand">
               <img src={logo1} alt="logo" className="logo" />
-            </NavLink>
+            </div>
 
             <h2 className="welcome-text">
               ¡Bienvenido de nuevo {user && user.name}{" "}
@@ -129,6 +128,11 @@ const Navbar = () => {
           )}
         </div>
       </nav>
+      {user && location.pathname != "/dashboard" && (
+        <>
+          <Sidebar isSidebarOpen={isSidebarOpen} />  
+        </>
+      )}
     </div>
   );
 };

@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { LogOut, reset } from "../features/authSlice";
 import axios from 'axios';
 
-const Sidebar = ({ onFormUpdate }) => {
+const Sidebar = ({ isSidebarOpen }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { user } = useSelector((state) => state.auth);
@@ -35,29 +35,29 @@ const Sidebar = ({ onFormUpdate }) => {
   };
 
   return (
-    <div className="sidebar-container">
-      <aside className="menuPrincipal">
-        <div className="generalC">
-          <p className="menu-label">General</p>
-        </div>
-        <ul className="menu-list">
-          <li>
-            <div className="dashboardC">
-              <NavLink to={"/dashboard"} className="nav-link">
-                <IoHome /> Inicio
-              </NavLink>
-            </div>
-          </li>
-          <li>
-            <div className="productsC">
-              <NavLink to={"/products"} className="nav-link">
-                <IoPricetag /> Productos
-              </NavLink>
-            </div>
-          </li>
+    <aside className={`menuPrincipal ${isSidebarOpen ? "open" : ""}`}>
+      <div className="generalC">
+        <p className="menu-label">General</p>
+      </div>
+      <ul className="menu-list">
+        <li>
+          <div className="dashboardC">
+            <NavLink to={"/dashboard"} className="nav-link">
+              <IoHome /> Inicio
+            </NavLink>
+          </div>
+        </li>
+        <li>
+          <div className="productsC">
+            <NavLink to={"/products"} className="nav-link">
+              <IoPricetag /> Productos
+            </NavLink>
+          </div>
+        </li>
+        {user && user.role === 'user' && (
           <li>
             <div className="FormsC">
-              {user && user.role === 'user' && userForms.length > 0 ? (
+              {userForms.length > 0 ? (
                 <NavLink to={"/forms/register"} className="nav-link">
                   <IoDocumentText /> Mi Inscripción
                 </NavLink>
@@ -68,57 +68,57 @@ const Sidebar = ({ onFormUpdate }) => {
               )}
             </div>
           </li>
-        </ul>
-
-        {user && user.role === 'admin' && (
-          <div>
-            <div className="adminC">
-              <p className="menu-label">Admin</p>
-            </div>
-            <ul className="menu-list">
-              <li>
-                <div className="usersC">
-                  <NavLink to={"/users"} className="nav-link">
-                    <IoPeople /> Perfiles
-                  </NavLink>
-                </div>
-              </li>
-            </ul>
-
-            <ul className="menu-list">
-              <li>
-                <div className="FormsC">
-                  <NavLink to={"/forms/view/admin"} className="nav-link">
-                    <IoArchive /> Reportes
-                  </NavLink>
-                </div>
-              </li>
-            </ul>
-
-            <ul className="menu-list">
-              <li>
-                <div className="FormsC">
-                  <NavLink to={"/forms/view/admin/graphics"} className="nav-link">
-                    <IoAnalytics /> Estadisticas
-                  </NavLink>
-                </div>
-              </li>
-            </ul>
-          </div>
         )}
+      </ul>
 
-        <div className="settingsC">
-          <p className="menu-label">Ajustes</p>
+      {user && user.role === 'admin' && (
+        <div>
+          <div className="adminC">
+            <p className="menu-label">Admin</p>
+          </div>
+          <ul className="menu-list">
+            <li>
+              <div className="usersC">
+                <NavLink to={"/users"} className="nav-link">
+                  <IoPeople /> Perfiles
+                </NavLink>
+              </div>
+            </li>
+          </ul>
+
+          <ul className="menu-list">
+            <li>
+              <div className="FormsC">
+                <NavLink to={"/forms/view/admin"} className="nav-link">
+                  <IoArchive /> Reportes
+                </NavLink>
+              </div>
+            </li>
+          </ul>
+
+          <ul className="menu-list">
+            <li>
+              <div className="FormsC">
+                <NavLink to={"/forms/view/admin/graphics"} className="nav-link">
+                  <IoAnalytics /> Estadisticas
+                </NavLink>
+              </div>
+            </li>
+          </ul>
         </div>
-        <ul className="buttonMenu">
-          <li>
-            <button onClick={logout} className="buttonM">
-              <IoLogOut /> Cerrar Sesión
-            </button>
-          </li>
-        </ul>
-      </aside>
-    </div>
+      )}
+
+      <div className="settingsC">
+        <p className="menu-label">Ajustes</p>
+      </div>
+      <ul className="buttonMenu">
+        <li>
+          <button onClick={logout} className="buttonM">
+            <IoLogOut /> Cerrar Sesión
+          </button>
+        </li>
+      </ul>
+    </aside>
   );
 };
 

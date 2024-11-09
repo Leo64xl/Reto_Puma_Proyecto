@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { IoAddCircle, IoTrash, IoCheckmarkCircle } from "react-icons/io5";
+import { IoAddCircle, IoTrash, IoCheckmarkCircle, IoDocument } from "react-icons/io5";
 import { useSelector } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../styles/FormView.css";
@@ -49,13 +49,7 @@ const FormView = () => {
 
   return (
     <div className="form-view-container">
-      {user && user.role === 'admin' && (
-        <>
-        <h1 className="title mt-1" style={{ color: '#E3B04B' }}>Registros</h1>
-          <h2 className="subtitle mt-1" style={{ color: '#ffffff' }}>Lista Completa Admin</h2>
-        </>
-      )}
-
+      
       {user && user.role === 'user' && (
         <>
           <h1 className="title mt-1" style={{ color: '#E3B04B' }}>Inscripción</h1>
@@ -82,6 +76,7 @@ const FormView = () => {
               <th>Apellido</th>
               <th>Categoria</th>
               <th>Equipo</th>
+              <th>Tipo de Kit</th>
               <th>Acciones Inscripción</th>
             </tr>
           </thead>
@@ -94,11 +89,21 @@ const FormView = () => {
                 <td>{form.lastnameone}</td>
                 <td>{form.category1}</td>
                 <td>{form.team}</td>
+                <td>{form.typekit}</td>
                 <td>
-                  {user && (user.role === 'admin' || form.userId === user.id) && (
+                {user && (user.role === 'user' || user.role === 'admin') && (
                     <>
-                      <Link to={`/forms/register/edit/${form.uuid}`} className="btn btn-primary me-2">Editar Inscripción</Link>
-                      <button onClick={() => handleDelete(form.uuid)} className="btn btn-danger ms-2"><IoTrash /></button>
+                      {user.role === 'user' && form.userId === user.id && (
+                        <>
+                          <Link to={`/forms/register/edit/${form.uuid}`} className="btn btn-primary me-2">Editar Inscripción</Link>
+                          <button onClick={() => handleDelete(form.uuid)} className="btn btn-danger ms-2"><IoTrash /></button>
+                        </>
+                      )}
+                      {user.role === 'admin' && (
+                        <>
+                          <Link to={`/forms/view/admin/form/${form.uuid}`} className="btn btn-primary me-2">Ver Inscripción <IoDocument/></Link>                    
+                        </>
+                      )}
                     </>
                   )}
                 </td>

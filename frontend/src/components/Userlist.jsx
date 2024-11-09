@@ -38,8 +38,8 @@ const Userlist = () => {
   return (
     <div className="user-list-container">
       <h1 className="title mt-1" style={{ color: '#E3B04B' }}>Usuarios</h1>
-      <h2 className="subtitle mt-1" style={{ color: '#ffffff' }}>Control de Usuarios</h2>
-      <Link to="/users/add" className="btn btn-success mb-3">Añadir Usuario <IoPersonAddSharp /></Link>
+      <h2 className="subtitle mt-1" style={{ color: '#ffffff' }}>Administrar Usuarios</h2>
+      <Link to="/users/add" className="btn btn-success mb-3">Crear Usuario <IoPersonAddSharp /></Link>
       <div className="table-responsive">
         <table className="table table-dark table-striped">
           <thead>

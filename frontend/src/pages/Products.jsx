@@ -4,6 +4,7 @@ import ProductList from '../components/ProductList'
 import {useDispatch, useSelector} from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { getMe } from '../features/authSlice';
+//import Footer from '../components/Footer/Footer'
 
 const Products = () => {
   const dispatch = useDispatch();
@@ -23,6 +24,7 @@ const Products = () => {
   return (
     <Layout>
         <ProductList/>
+        {/*<Footer/>*/}
     </Layout>
   )
 }

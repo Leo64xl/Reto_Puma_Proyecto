@@ -85,7 +85,23 @@ export const GraphicsAd = () => {
       {
         label: label,
         data: Object.values(data),
-        backgroundColor: "rgba(75, 192, 192, 0.6)",
+        backgroundColor: [
+          "rgba(255, 99, 132, 0.6)",
+          "rgba(54, 162, 235, 0.6)",
+          "rgba(255, 206, 86, 0.6)",
+          "rgba(75, 192, 192, 0.6)",
+          "rgba(153, 102, 255, 0.6)",
+          "rgba(255, 159, 64, 0.6)",
+        ],
+        borderColor: [
+          "rgba(255, 99, 132, 1)",
+          "rgba(54, 162, 235, 1)",
+          "rgba(255, 206, 86, 1)",
+          "rgba(75, 192, 192, 1)",
+          "rgba(153, 102, 255, 1)",
+          "rgba(255, 159, 64, 1)",
+        ],
+        borderWidth: 1,
       },
     ],
   });
@@ -112,6 +128,14 @@ export const GraphicsAd = () => {
             "rgba(75, 192, 192, 0.6)",
             "rgba(153, 102, 255, 0.6)",
           ],
+          borderColor: [
+            "rgba(255, 99, 132, 1)",
+            "rgba(54, 162, 235, 1)",
+            "rgba(255, 206, 86, 1)",
+            "rgba(75, 192, 192, 1)",
+            "rgba(153, 102, 255, 1)",
+          ],
+          borderWidth: 1,
         },
       ],
     };
@@ -127,40 +151,49 @@ export const GraphicsAd = () => {
       </h2>
 
       <div className="chart-container">
-        <h2>Frecuencia de Formularios por Categoría</h2>
-        <Bar data={generateBarChartData(categoryData, "Categorías")} />
+        <div className="chart-wrapper">
+          <h2>Frecuencia de Formularios por Categoría</h2>
+          <Bar data={generateBarChartData(categoryData, "Categorías")} />
+        </div>
 
-        <h2>Tallas Solicitadas</h2>
-        <Bar data={generateBarChartData(tallaData, "Tallas")} />
+        <div className="chart-wrapper">
+          <h2>Tallas Solicitadas</h2>
+          <Bar data={generateBarChartData(tallaData, "Tallas")} />
+        </div>
 
-        <h2>Número de Formularios por Equipo</h2>
-        <Bar data={generateBarChartData(teamData, "Equipos")} />
-        <h2>Orígenes de los Usuarios</h2>
-        <div className="pie-chart-container">
-          <Pie
-            data={generatePieChartData(originData, "Origen")}
-            options={{
-              maintainAspectRatio: false,
-              responsive: true,
-              plugins: {
-                datalabels: {
-                  color: "#ffffff",
-                  anchor: "end",
-                  align: "end",
-                  formatter: (value, context) => {
-                    const total = context.chart.data.datasets[0].data.reduce(
-                      (sum, val) => sum + val,
-                      0
-                    );
-                    const percentage = total
-                      ? ((value / total) * 100).toFixed(2)
-                      : 0;
-                    return `${percentage}%`;
+        <div className="chart-wrapper">
+          <h2>Número de Formularios por Equipo</h2>
+          <Bar data={generateBarChartData(teamData, "Equipos")} />
+        </div>
+
+        <div className="chart-wrapper">
+          <h2>Orígenes de los Usuarios</h2>
+          <div className="pie-chart-container">
+            <Pie
+              data={generatePieChartData(originData, "Origen")}
+              options={{
+                maintainAspectRatio: false,
+                responsive: true,
+                plugins: {
+                  datalabels: {
+                    color: "#ffffff",
+                    anchor: "end",
+                    align: "end",
+                    formatter: (value, context) => {
+                      const total = context.chart.data.datasets[0].data.reduce(
+                        (sum, val) => sum + val,
+                        0
+                      );
+                      const percentage = total
+                        ? ((value / total) * 100).toFixed(2)
+                        : 0;
+                      return `${percentage}%`;
+                    },
                   },
                 },
-              },
-            }}
-          />
+              }}
+            />
+          </div>
         </div>
       </div>
     </div>

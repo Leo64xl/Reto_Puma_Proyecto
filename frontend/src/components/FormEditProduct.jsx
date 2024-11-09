@@ -107,20 +107,18 @@ const FormEditProduct = () => {
               />
             </div>
             <div className="mb-3">
-              <label className="form-label"><IoCheckmarkCircle /> Disponible:</label>
-              <select
-                className="form-select"
+              <label className="form-label"><IoCheckmarkCircle /> Unidades disponibles:</label>
+              <input
+                type="text"
+                className="form-control"
                 value={available}
                 onChange={(e) => setAvailable(e.target.value)}
-              >
-                <option>Selecciona Una Opcion</option>
-                <option value="Si">Si</option>
-                <option value="No">No</option>
-              </select>
+                placeholder='Unidades disponibles'
+              />                
             </div>
             <div className="d-flex justify-content-between">
-              <Link to="/products" className="btn btn-success"><IoArrowBack /> Volver </Link>
-              <button type="submit" className="btn btn-success">Actualizar Producto</button>              
+              <Link to="/products" className="btn btn-success mt-1"><IoArrowBack /> Volver </Link>
+              <button type="submit" className="btn btn-success mt-1">Actualizar Producto</button>              
             </div>
           </form>
         </div>

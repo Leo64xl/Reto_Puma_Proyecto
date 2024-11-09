@@ -38,7 +38,7 @@ const Forms = db.define('form',{
         allowNull: false,
         validate: {
             notEmpty: true,
-            len: [3,100]
+            len: [0,100]
         }
     },
     

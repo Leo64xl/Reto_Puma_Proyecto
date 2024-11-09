@@ -19,6 +19,9 @@ const Forms = () => {
     if(isError){
       navigate('/');
     }
+    if(user && user.role !== 'user'){
+      navigate("/forms/view/admin");
+    }
   }, [isError, user, navigate]);
 
   return (

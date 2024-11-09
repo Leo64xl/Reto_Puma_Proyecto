@@ -31,13 +31,13 @@ const FormBuyProduct = () => {
     getProductById();
   }, [id]);
 
-  const whatsappNumber = '5571669890';
+  const whatsappNumber = '7298027939';
   const message = `Hola, estoy interesado en el producto ${name}, ${description}. Puedes darme más información sobre él?`;
 
   return (
     <div className="form-buy-product-container">
-      <h1 className="title mt-5" style={{ color: '#E3B04B' }}>Producto</h1>
-      <h2 className="subtitle mt-1" style={{ color: '#ffffff' }}>Comprar Producto {name}</h2>
+      <h1 className="title mt-15" style={{ color: '#E3B04B' }}>Producto</h1>
+      <h2 className="subtitle mt-1" style={{ color: '#ffffff' }}>Producto: {name} | Precio: ${price}</h2>
       <div className="card bg-dark text-white">
         <div className="card-body">
           <form className="form-buy-product">
@@ -49,7 +49,7 @@ const FormBuyProduct = () => {
                 target="_blank" 
                 rel="noopener noreferrer"
               >
-                <IoLogoWhatsapp size={42} color='#25D366'/> 
+                <IoLogoWhatsapp size={42} color='#ffffff'/> 
                 <span className="whatsapp-text">
                   Contáctanos vía WhatsApp para más información sobre este producto.
                 </span>
@@ -93,7 +93,7 @@ const FormBuyProduct = () => {
               />
             </div>
             <div className="mb-3">
-              <label className="form-label"><IoCheckmarkCircle /> Disponible:</label>
+              <label className="form-label"><IoCheckmarkCircle /> Unidades Disponibles:</label>
               <input 
                 type='text' 
                 className="form-control text-black"
