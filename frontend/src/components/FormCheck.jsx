@@ -52,8 +52,8 @@ const FormCheck = () => {
 
   return (
     <div className="form-check-container">
-      <h1 className="title mt-1" style={{ color: '#E3B04B' }}>Inscripción</h1>
-      <h2 className="subtitle mt-1" style={{ color: '#ffffff' }}>¡Inscribete Ahora!</h2>
+      <h1 className="title " style={{ color: '#E3B04B' }}>Inscripción</h1>
+      <h2 className="subtitle mt-2" style={{ color: '#ffffff' }}>¡Inscribete Ahora!</h2>
       <div className="card bg-dark text-white">
         <div className="card-body">
           <form onSubmit={saveForm}>

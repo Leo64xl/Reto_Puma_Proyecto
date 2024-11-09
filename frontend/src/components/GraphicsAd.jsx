@@ -143,34 +143,34 @@ export const GraphicsAd = () => {
 
   return (
     <div className="graphics-ad-container">
-      <h1 className="title mt-1" style={{ color: "#E3B04B" }}>
-        Registros
+      <h1 className="title mt-1" style={{ color: "#e3b04b" }}>
+       Estadisticas
       </h1>
       <h2 className="subtitle mt-1" style={{ color: "#ffffff" }}>
-        Gráficas de Registros
+        Graficacion de Datos
       </h2>
 
       <div className="chart-container">
         <div className="chart-wrapper">
-          <h2>Frecuencia de Formularios por Categoría</h2>
-          <Bar data={generateBarChartData(categoryData, "Categorías")} />
+          <h2>Categorias Seleccionadas</h2>
+          <Bar data={generateBarChartData(categoryData, "Personas")} />
         </div>
 
         <div className="chart-wrapper">
           <h2>Tallas Solicitadas</h2>
-          <Bar data={generateBarChartData(tallaData, "Tallas")} />
+          <Bar data={generateBarChartData(tallaData, "Numero de Personas que eligieron la talla")} />
         </div>
 
         <div className="chart-wrapper">
-          <h2>Número de Formularios por Equipo</h2>
-          <Bar data={generateBarChartData(teamData, "Equipos")} />
+          <h2>Equipos Ingresados</h2>
+          <Bar data={generateBarChartData(teamData, "Numero de Personas en el Equipo")} />
         </div>
 
         <div className="chart-wrapper">
-          <h2>Orígenes de los Usuarios</h2>
+          <h2>Lugar de Procedencia</h2>
           <div className="pie-chart-container">
             <Pie
-              data={generatePieChartData(originData, "Origen")}
+              data={generatePieChartData(originData, "Porcentaje de Personas")}
               options={{
                 maintainAspectRatio: false,
                 responsive: true,
