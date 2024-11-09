@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import { IoCheckmarkCircle, IoDownload, IoTrash } from "react-icons/io5";
+import { saveAs } from 'file-saver';
 import "../styles/FormViewAD.css";
 import { Link } from "react-router-dom";
 
@@ -16,9 +17,13 @@ const FormViewAD = () => {
   }, []);
 
   const getForms = async () => {
-    const response = await axios.get("http://localhost:5000/forms");
-    setForms(response.data);
-    setTotalRegistros(response.data.length); // Actualizar el número total de registros
+    try {
+      const response = await axios.get("http://localhost:5000/forms");
+      setForms(response.data);
+      setTotalRegistros(response.data.length); // Actualizar el número total de registros
+    } catch (error) {
+      console.error("Error al obtener los formularios:", error);
+    }
   };
 
   const handleDelete = async (uuid) => {
@@ -39,18 +44,14 @@ const FormViewAD = () => {
 
   const handleDownloadExcel = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/forms/excel", {
+      const response = await axios.get("http://localhost:5000/download-excel", {
         responseType: 'blob',
       });
-      const url = window.URL.createObjectURL(new Blob([response.data]));
-      const link = document.createElement('a');
-      link.href = url;
-      link.setAttribute('download', 'Forms.xlsx');
-      document.body.appendChild(link);
-      link.click();
-      link.parentNode.removeChild(link);
+      const blob = new Blob([response.data], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+      saveAs(blob, 'Forms.xlsx');
     } catch (error) {
-      setMsg('Error downloading Excel file.');
+      console.error("Error al descargar el archivo Excel:", error);
+      setMsg('Error al descargar el archivo Excel.');
       setTimeout(() => setMsg(''), 3000);
     }
   };
@@ -65,7 +66,7 @@ const FormViewAD = () => {
         </button>
         <span className="badge bg-info text-dark">
           <IoCheckmarkCircle style={{ marginRight: '5px' }} />
-          Inscripciones Realizadas: {totalRegistros}
+           Se Han Inscrito: {totalRegistros} Usuarios
         </span>
       </div>
       <div className="table-responsive">
@@ -73,6 +74,7 @@ const FormViewAD = () => {
           <thead>
             <tr>
               <th>No</th>
+              <th>Correo Electrónico</th>
               <th>Nombre</th>
               <th>Apellido</th>
               <th>Competicion</th>
@@ -84,6 +86,7 @@ const FormViewAD = () => {
             {forms.map((form, index) => (
               <tr key={form.uuid}>
                 <td>{index + 1}</td>
+                <td>{form.email}</td>
                 <td>{form.nameUser}</td>
                 <td>{form.lastnameone}</td>
                 <td>{form.nameForm}</td>

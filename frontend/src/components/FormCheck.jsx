@@ -52,8 +52,8 @@ const FormCheck = () => {
 
   return (
     <div className="form-check-container">
-      <h1 className="title " style={{ color: '#E3B04B' }}>Inscripción</h1>
-      <h2 className="subtitle mt-2" style={{ color: '#ffffff' }}>¡Inscribete Ahora!</h2>
+      <h1 className="title " style={{ color: '#E3B04B' }}>Crear Inscripción</h1>
+      <h2 className="subtitle mt-2" style={{ color: '#ffffff' }}>¡Inscribete al Reto Puma, {user && user.name}! </h2>
       <div className="card bg-dark text-white">
         <div className="card-body">
           <form onSubmit={saveForm}>
@@ -271,7 +271,7 @@ const FormCheck = () => {
                 <option value="Zacatecas">Zacatecas</option>
               </select>
             </div>
-            <button type='submit' className='btn btn-success mt-2'>Crear Inscripción <IoCheckmarkCircle/></button>
+            <button type='submit' className='btn btn-success mt-2'>Crear Mi Inscripción <IoCheckmarkCircle/></button>
           </form>
         </div>
       </div>

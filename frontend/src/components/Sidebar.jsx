@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { IoPricetag, IoHome, IoLogOut, IoCreate, IoArchive, IoAnalytics, IoDocumentText, IoPeople } from "react-icons/io5";
+import { IoPricetag, IoHome, IoLogOut, IoCreate, IoArchive, IoAnalytics, IoDocumentText, IoPeople, IoClipboard } from "react-icons/io5";
 import "../styles/Sidebar.css";
 import { useDispatch, useSelector } from 'react-redux';
 import { LogOut, reset } from "../features/authSlice";
@@ -90,7 +90,7 @@ const Sidebar = ({ isSidebarOpen }) => {
             <li>
               <div className="FormsC">
                 <NavLink to={"/forms/view/admin"} className="nav-link">
-                  <IoArchive /> Reportes
+                  <IoClipboard /> Inscripciones
                 </NavLink>
               </div>
             </li>

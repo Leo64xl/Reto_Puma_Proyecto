@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useSelector } from 'react';
 import axios from 'axios';
 import { IoMail, IoShirt, IoPeople, IoCall, IoLocation, IoTrophy, IoPerson, IoCalendar, IoList, IoBag, IoSave } from 'react-icons/io5';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -75,10 +75,12 @@ const FormEditRegister = () => {
     }
   };
 
+  const { user } = useSelector((state) => state.auth);
+
   return (
     <div className="form-edit-register-container">
-      <h1 className="title mt-5" style={{ color: '#E3B04B' }}>Editar Registro</h1>
-      <h2 className="subtitle mt-1" style={{ color: '#ffffff' }}>Datos Personales de {nameUser} | Competencia {nameForm}</h2>
+      <h1 className="title mt-5" style={{ color: '#E3B04B' }}>Editar Inscripción</h1>
+      <h2 className="subtitle mt-1" style={{ color: '#ffffff' }}>Datos Personales de {user && user.name} | Competencia {nameForm}</h2>
       <div className="card bg-dark text-white">
         <div className="card-body">
           <form onSubmit={updateForm}>
@@ -111,7 +113,7 @@ const FormEditRegister = () => {
                 type='text'
                 required
                 className="form-control"
-                placeholder='Segundo Nombre'
+                placeholder='En caso de no tener, Escribir "-"'
                 value={nameUser2}
                 onChange={(e) => setNameUser2(e.target.value)}
               />
@@ -251,15 +253,47 @@ const FormEditRegister = () => {
               />
             </div>
             <div className="mb-3">
-              <label className="form-label"><IoLocation /> Ubicación:</label>
-              <input
-                type='text'
-                className="form-control"
-                required
-                placeholder='Ubicación'
+              <label className="form-label"><IoLocation /> Procedencia:</label>
+              <select
+                className="form-select"
                 value={origin}
                 onChange={(e) => setOrigin(e.target.value)}
-              />
+                required
+              >
+                <option>Selecciona tu Estado de Procedencia</option>
+                <option value="Aguascalientes">Aguascalientes</option>
+                <option value="Baja California">Baja California</option>
+                <option value="Baja California Sur">Baja California Sur</option>
+                <option value="Campeche">Campeche</option>
+                <option value="Chiapas">Chiapas</option>
+                <option value="Chihuahua">Chihuahua</option>
+                <option value="Ciudad de México">Ciudad de México</option>
+                <option value="Coahuila">Coahuila</option>
+                <option value="Colima">Colima</option>
+                <option value="Durango">Durango</option>
+                <option value="Estado de México">Estado de México</option>
+                <option value="Guanajuato">Guanajuato</option>
+                <option value="Guerrero">Guerrero</option>
+                <option value="Hidalgo">Hidalgo</option>
+                <option value="Jalisco">Jalisco</option>
+                <option value="Michoacán">Michoacán</option>
+                <option value="Morelos">Morelos</option>
+                <option value="Nayarit">Nayarit</option>
+                <option value="Nuevo León">Nuevo León</option>
+                <option value="Oaxaca">Oaxaca</option>
+                <option value="Puebla">Puebla</option>
+                <option value="Querétaro">Querétaro</option>
+                <option value="Quintana Roo">Quintana Roo</option>
+                <option value="San Luis Potosí">San Luis Potosí</option>
+                <option value="Sinaloa">Sinaloa</option>
+                <option value="Sonora">Sonora</option>
+                <option value="Tabasco">Tabasco</option>
+                <option value="Tamaulipas">Tamaulipas</option>
+                <option value="Tlaxcala">Tlaxcala</option>
+                <option value="Veracruz">Veracruz</option>
+                <option value="Yucatán">Yucatán</option>
+                <option value="Zacatecas">Zacatecas</option>
+              </select>
             </div>
             <button type='submit' className='btn btn-success mt-2'>Guardar Cambios</button>
           </form>

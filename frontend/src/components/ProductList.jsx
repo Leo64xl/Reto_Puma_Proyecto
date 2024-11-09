@@ -43,7 +43,7 @@ const ProductList = () => {
 
         {user && user.role === 'admin' && (
           <>
-            <Link to="/products/add" className="btn btn-add-product mb-3">Añadir Producto <IoAddCircle /></Link>
+            <Link to="/products/add" className="btn btn-add-product">Añadir Producto <IoAddCircle /></Link>
           </>
         )}
         

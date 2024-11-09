@@ -64,7 +64,7 @@ const Navbar = ({ toggleSidebar }) => {
     if (user?.role === "user" && !restrictedRoutes.user.includes(location.pathname)) {
       return (
         <div className={`menu ${isMenuOpen ? "is-active" : ""}`}>
-          <Link to="/forms/register">¡INSCRIBETE AHORA!</Link>
+          <Link to="/forms/register/add">¡INSCRIBETE AHORA!</Link>
           <Link to="/products">VISITA NUESTRO CATALOGO</Link>
           <Link to="/products">AVISOS Y RUTAS</Link>
         </div>
@@ -89,7 +89,7 @@ const Navbar = ({ toggleSidebar }) => {
 
             <h2 className="welcome-text">
               ¡Bienvenido de nuevo {user && user.name}{" "}
-              {user && user.role === "user" && ":D !"}{" "}
+              {user && user.role === "user" && "! :D"}{" "}
               {user && user.role === "admin" && "! Admin🔥"}
             </h2>
           </div>
