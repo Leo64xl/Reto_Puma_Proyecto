@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { IoMail, IoShirt, IoPeople, IoCall, IoLocation, IoTrophy, IoPerson, IoCalendar, IoList, IoBag, IoSave } from 'react-icons/io5';
+import { IoMail, IoShirt, IoPeople, IoCall, IoLocation, IoTrophy, IoPerson, IoCalendar, IoList, IoBag, IoSave, IoArrowBack } from 'react-icons/io5';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux'; 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -54,26 +54,29 @@ const FormEditRegister = () => {
 
   const updateForm = async (e) => {
     e.preventDefault();
-    try {
-      await axios.patch(`http://localhost:5000/forms/${id}`, {
-        nameForm,
-        nameUser,
-        nameUser2,
-        lastnameone,
-        lastnametwo,
-        birthday,
-        category1,
-        typekit,
-        talla,
-        team,
-        phone,
-        email,
-        origin,
-      });
-      navigate('/forms/register');
-    } catch (error) {
-      if (error.response) {
-        setMsg(error.response.data.msg);
+    const confirmUpdate = window.confirm('¿Está seguro de que desea aplicar los cambios?');
+    if (confirmUpdate) {
+      try {
+        await axios.patch(`http://localhost:5000/forms/${id}`, {
+          nameForm,
+          nameUser,
+          nameUser2,
+          lastnameone,
+          lastnametwo,
+          birthday,
+          category1,
+          typekit,
+          talla,
+          team,
+          phone,
+          email,
+          origin,
+        });
+        navigate('/forms/register');
+      } catch (error) {
+        if (error.response) {
+          setMsg(error.response.data.msg);
+        }
       }
     }
   };
@@ -298,7 +301,12 @@ const FormEditRegister = () => {
                 <option value="Zacatecas">Zacatecas</option>
               </select>
             </div>
-            <button type='submit' className='btn btn-success mt-2'>Guardar Cambios</button>
+              <div className="d-flex justify-content-between">
+                <Link to="/forms/register" className="btn btn-success mt-2">
+                    <IoArrowBack /> Volver
+                </Link>
+                <button type='submit' className='btn btn-success mt-2'>Guardar Cambios <IoSave /></button>
+              </div>
           </form>
         </div>
       </div>

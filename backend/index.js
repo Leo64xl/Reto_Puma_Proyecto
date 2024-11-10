@@ -8,6 +8,9 @@ import UserRoute from './routes/UserRoute.js';
 import ProductRoute from './routes/ProductRoute.js';
 import AuthRoute from './routes/AuthRoute.js';
 import FormsRoute from "./routes/FormRoute.js";
+import AdvertisementRoute from "./routes/AdvertisementRoute.js";
+import ResultRoute from "./routes/ResultRoute.js";
+import RouteRoute from "./routes/RouteRoute.js";
 import fileUpload from "express-fileupload";
 
 dotenv.config();
@@ -20,9 +23,10 @@ const store = new sessionStore({
     db: db,
 });
 
+
 //(async() => {
-//    await db.sync();
-//}) ();
+//   await db.sync();
+//}) (); 
 
 app.use(sessions( {
     secret: process.env.SESS_SECRET,
@@ -46,9 +50,12 @@ app.use(UserRoute);
 app.use(ProductRoute);
 app.use(AuthRoute);
 app.use(FormsRoute);
+app.use(AdvertisementRoute);
+app.use(ResultRoute);
+app.use(RouteRoute);
 
 //store.sync();
 
 app.listen(process.env.APP_PORT,() => {
-    console.log('Server up and running...');
+    console.log('Server running');
 });
