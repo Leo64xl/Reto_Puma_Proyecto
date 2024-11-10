@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { IoCube, IoPricetag, IoDocumentText, IoCheckmarkCircle, IoDownload } from 'react-icons/io5';
+import { IoCube, IoPricetag, IoDocumentText, IoCheckmarkCircle, IoDownload, IoArrowBack } from 'react-icons/io5';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/FormAddProduct.css';
+import { FaInstagram, FaFacebook, FaYoutube } from "react-icons/fa"; 
 
 const FormAddProduct = () => {
   const [name, setName] = useState('');
@@ -100,8 +101,13 @@ const FormAddProduct = () => {
                   onChange={(e) => setAvailable(e.target.value)}
                   placeholder='Unidades Disponibles'
                 />                
-              </div>            
-            <button type='submit' className='btn btn-success mt-2'>Guardar Producto</button>
+              </div>
+              <div className="d-flex justify-content-between">
+                <Link to="/products" className="btn btn-success mt-2">
+                  <IoArrowBack /> Volver
+                </Link>
+                <button type='submit' className='btn btn-success mt-2'>Crear Nuevo Producto</button>
+              </div>
           </form>
         </div>
       </div>

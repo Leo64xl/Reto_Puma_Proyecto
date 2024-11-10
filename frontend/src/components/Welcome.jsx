@@ -6,6 +6,7 @@ import About from './About us/About';
 import Aviso from './Avisos/Aviso';
 import Patrocinadores from './SeccionP/Patrocinadores';
 import Anuncio from './Anuncio/Anuncio';
+import { Link } from 'react-router-dom';
 
 const Welcome = () => {
   return (

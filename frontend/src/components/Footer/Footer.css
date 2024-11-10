@@ -1,5 +1,5 @@
 .footer {
-  background-color: #1a1a1a;
+  background-color: transparent; /* Hacer el fondo del footer transparente */
   color: #fff;
   padding: 40px 20px;
   font-family: Arial, sans-serif;

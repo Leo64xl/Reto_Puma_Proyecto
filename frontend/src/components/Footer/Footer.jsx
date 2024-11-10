@@ -1,19 +1,30 @@
 import React from 'react';
 import './Footer.css';
 import { FaInstagram, FaFacebook, FaYoutube } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
+    <div style={{backgroundColor: 'transparent'}}>  
     <footer className="footer">
-      <div className="footer-container">
+      <div className="footer-container" style={{backgroundColor: 'transparent'}}>
         <h2>RETO PUMA BIKE</h2>
         <nav className="footer-nav">
-          <a href="#inicio">INICIO</a>
-          <a href="#ruta">RUTA</a>
-          <a href="#inscripciones">INSCRIPCIONES</a>
-          <a href="#resultados">RESULTADOS</a>
-          <a href="#productos">PRODUCTOS</a>
-          <a href="#quienes-somos">QUIÉNES SOMOS</a>
+          <Link to= "/dashboard">
+            <a href="#inicio">INICIO</a>
+          </Link>
+          <Link to= "/ruta">
+              <a>RUTA</a>
+          </Link>
+          <Link to= "/forms/register">
+             <a>"INSCRIPCIONES"</a>
+          </Link>
+          <Link to= "/result/winners">
+              <a>RESULTADOS</a>
+          </Link>
+          <Link to= "/products">
+             <a>PRODUCTOS</a>
+          </Link>
         </nav>
         <p>
           En Reto Puma Bike es una experiencia única que celebra la pasión por el ciclismo. Reunimos a ciclistas de todos los niveles, con eventos de calidad, competidores internacionales y nacionales, inscripciones accesibles y una premiación emocionante. Es más que una competencia: es un desafío, una conexión y una celebración de cada kilómetro recorrido. <span className="highlight">Atrévete a recorrer el territorio puma.</span>
@@ -64,8 +75,8 @@ const Footer = () => {
         </p>
       </div>
     </footer>
+    </div>
   );
 };
 
 export default Footer;
-

@@ -6,7 +6,7 @@
 .form-view-container {
   padding: 20px;
   max-width: 1200px;
-  height: 90vh;
+  height: auto;
   margin: 0 auto;
   margin-top: 65px;
 }
@@ -44,6 +44,7 @@
   background-color: #1c1c1c;
   border-radius: 8px;
   overflow: hidden;
+  margin-block-end: 280px;
 }
 
 .table th,

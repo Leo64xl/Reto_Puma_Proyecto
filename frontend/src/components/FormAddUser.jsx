@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { IoMail, IoLockClosed, IoPersonAdd } from "react-icons/io5";
+import { IoMail, IoLockClosed, IoPersonAdd, IoArrowBack } from "react-icons/io5";
 import "../styles/FormAddUser.css";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 const FormAddUser = () => {
   const [name, setName] = useState("");
@@ -126,9 +126,14 @@ const FormAddUser = () => {
               </div>
             </div>
 
-            <button type="submit" className="btn btn-success mt-2">
-              Crear Usuario <IoPersonAdd/>
-            </button>
+            <div className="d-flex justify-content-between">              
+             <Link to="/users" className="btn btn-success mt-2">
+                <IoArrowBack /> Volver
+              </Link>
+              <button type="submit" className="btn btn-success mt-2">
+                Crear Usuario <IoPersonAdd/>
+              </button>
+            </div>
           </form>
         </div>
       </div>
