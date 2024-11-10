@@ -15,6 +15,11 @@ import FormControl from "./pages/FormControl";
 import FormCheckAdmin from "./pages/FormCheckAdmin";
 import EditRegister from "./pages/EditRegister";
 import GraphicsAdmin from "./pages/GraphicsAdmin";
+import PageResults from "./pages/PageResults";
+import ResultsAdd from "./pages/ResultsAdd";
+import ResultsEdit from "./pages/ResultsEdit";
+import RouteView from "./pages/RouteView";
+import RouteAdmin from "./pages/RouteAdmin";
 
 function App() {
   
@@ -24,7 +29,12 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} /> 
           <Route path="/register" element={<Register />} />
-          <Route path="/dashboard" element={<Dashboard />} />  
+          <Route path="/dashboard" element={<Dashboard />} /> 
+          <Route path="/result/winners" element={<PageResults />} /> 
+          <Route path="/result/winners/add" element={<ResultsAdd />} />
+          <Route path="/result/winners/edit/:id" element={<ResultsEdit />} />
+          <Route path="/ruta" element={<RouteView />} />
+          <Route path="/ruta/admin" element={<RouteAdmin />} />
           <Route path="/users" element={<Users />} />  
           <Route path="/users/add" element={<AddUser />} />
           <Route path="/users/edit/:id" element={<EditUser />} />

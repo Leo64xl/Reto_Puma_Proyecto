@@ -9,7 +9,7 @@ export const getRoutes = async(req, res) => {
         let response;
         if(req.role === "user") {
             response = await Routes.findAll({
-                attributes: ['uuid', 'name', 'description', 'image', 'url'],
+                attributes: ['uuid', 'name', 'image', 'url', 'description'],
                 include: [{
                     model: Users,
                     attributes:['name', 'email']
@@ -17,7 +17,7 @@ export const getRoutes = async(req, res) => {
             });
         }else{
             response = await Routes.findAll({
-                attributes: ['uuid', 'name', 'description', 'image', 'url'],
+                attributes: ['uuid', 'name', 'image', 'url', 'description'],
                 where: {
                     userId: req.userId
                 },
@@ -44,7 +44,7 @@ export const getRouteById = async(req  , res) => {
         let response;
         if(req.role === "user") {
             response = await Routes.findOne({
-                attributes: ['uuid', 'name', 'description', 'image', 'url'],
+                attributes: ['uuid', 'name', 'image', 'url', 'description'],
                 where: {
                     id: route.id
                 },
@@ -55,13 +55,13 @@ export const getRouteById = async(req  , res) => {
             });
         }else{
             response = await Routes.findOne({
-                attributes: ['uuid', 'name', 'description', 'image', 'url'],
+                attributes: ['uuid', 'name', 'image', 'url', 'description'],
                 where: {
                     [Op.and] : [{id: route.id}, {userId: req.userId}]
                 },
                 include: [{
                     model: Users,
-                    attributes:['name', 'email']
+                    attributes: ['name', 'email']
                 }]
             });
         }
@@ -152,7 +152,7 @@ export const updateRoute = async(req, res) => {
             },
             {
                 where: {
-                    id: advertisement.id
+                    id: route.id
                 }
             }
         );
