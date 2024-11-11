@@ -20,6 +20,10 @@ import ResultsAdd from "./pages/ResultsAdd";
 import ResultsEdit from "./pages/ResultsEdit";
 import RouteView from "./pages/RouteView";
 import RouteAdmin from "./pages/RouteAdmin";
+import RoutesEd from "./pages/RoutesEd";
+import Advertesiments from "./pages/Advertesiments";
+import AddAdvert from "./pages/AddAdvert";
+import EditAdvert from "./pages/EditAdvert";
 
 function App() {
   
@@ -35,6 +39,10 @@ function App() {
           <Route path="/result/winners/edit/:id" element={<ResultsEdit />} />
           <Route path="/ruta" element={<RouteView />} />
           <Route path="/ruta/admin" element={<RouteAdmin />} />
+          <Route path="/ruta/admin/edit/:id" element={<RoutesEd />} />
+          <Route path="/advertisements" element={<Advertesiments />} />
+          <Route path="/advertisements/admin" element={<AddAdvert />} />
+          <Route path="/advertisements/admin/edit/:id" element={<EditAdvert />} />
           <Route path="/users" element={<Users />} />  
           <Route path="/users/add" element={<AddUser />} />
           <Route path="/users/edit/:id" element={<EditUser />} />

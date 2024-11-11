@@ -33,20 +33,20 @@ export const getAdvertisements = async(req, res) => {
     }
 }
 
-export const getAdvertisementById = async(req, res) => {
+export const getAdvertisementById = async(req , res) => {
     try {
-        const product = await Advertisements.findOne({
+        const advertisement = await Advertisements.findOne({
             where: {
                 uuid: req.params.id
             }
         });
-        if(!product) return res.status(404).json({msg: "Datos no encontrados"});
+        if(!advertisement) return res.status(404).json({msg: "Datos no encontrados"});
         let response;
         if(req.role === "user") {
             response = await Advertisements.findOne({
-                attributes: ['uuid', 'name', 'image' , 'url', 'description' ],
+                attributes: ['uuid', 'name', 'image', 'url', 'description'],
                 where: {
-                id: product.id
+                id: advertisement.id
             },
                 include: [{
                     model: Users,
@@ -57,7 +57,7 @@ export const getAdvertisementById = async(req, res) => {
             response = await Advertisements.findOne({
                 attributes: ['uuid', 'name', 'image', 'url', 'description'],
                 where: {
-                    [Op.and] : [{id: product.id}, {userId: req.userId}]                    
+                    [Op.and] : [{id: advertisement.id}, {userId: req.userId}]                    
                 },
                 include: [{
                     model: Users,

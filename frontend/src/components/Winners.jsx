@@ -68,7 +68,7 @@ const Winners = () => {
                     <tbody>
                         {winners.map((winner, index) => (
                             <tr key={winner.uuid}>
-                                <td>{index + 1}</td>
+                                <td>#{index + 1}</td>
                                 <td>{winner.nameCompetition}</td>
                                 <td>{winner.rider}</td>
                                 <td>{winner.teamName}</td>

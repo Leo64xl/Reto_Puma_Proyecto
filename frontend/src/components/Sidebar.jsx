@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { IoPricetag, IoHome, IoLogOut, IoCreate, IoArchive, IoAnalytics, IoDocumentText, IoPeople, IoClipboard, IoPodium } from "react-icons/io5";
+import { IoPricetag, IoHome, IoLogOut, IoCreate, IoArchive, IoAnalytics, IoDocumentText, IoPeople, IoClipboard, IoPodium, IoMap, IoNotifications, IoMegaphone, IoTrophySharp } from "react-icons/io5";
 import "../styles/Sidebar.css";
 import { useDispatch, useSelector } from 'react-redux';
 import { LogOut, reset } from "../features/authSlice";
@@ -48,12 +48,29 @@ const Sidebar = ({ isSidebarOpen }) => {
           </div>
         </li>
         <li>
+          <div className="dashboardC">
+            <NavLink to={"/advertisements"} className="nav-link">
+              <IoMegaphone /> Avisos
+            </NavLink>
+          </div>
+        </li>
+
+        <li>
+          <div className="dashboardC">
+            <NavLink to={"/ruta"} className="nav-link">
+              <IoMap /> Rutas
+            </NavLink>
+          </div>
+        </li>
+
+        <li>
           <div className="productsC">
             <NavLink to={"/products"} className="nav-link">
               <IoPricetag /> Productos
             </NavLink>
           </div>
-        </li>
+        </li>        
+
         {user && user.role === 'user' && (
           <li>
             <div className="FormsC">
@@ -72,11 +89,14 @@ const Sidebar = ({ isSidebarOpen }) => {
         <li>
           <div className="dashboardC">
             <NavLink to={"/result/winners"} className="nav-link">
-              <IoPodium /> Resultados
+              <IoTrophySharp /> Ganadores
             </NavLink>
           </div>
-        </li>
+        </li>       
+
       </ul>
+
+      
 
       {user && user.role === 'admin' && (
         <div>
@@ -121,7 +141,7 @@ const Sidebar = ({ isSidebarOpen }) => {
       <ul className="buttonMenu">
         <li>
           <button onClick={logout} className="buttonM">
-            <IoLogOut /> Cerrar Sesión
+             Cerrar Sesión 
           </button>
         </li>
       </ul>

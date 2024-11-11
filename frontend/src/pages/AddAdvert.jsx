@@ -3,9 +3,9 @@ import Layout from './Layout'
 import {useDispatch, useSelector} from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { getMe } from '../features/authSlice';
-import AddRoute from '../components/AddRoute';
+import FormAddAD from '../components/FormAddAD';
 
-const RouteAdmin = () => {
+const AddAdvert = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { isError, user } = useSelector(state => state.auth);
@@ -22,12 +22,12 @@ const RouteAdmin = () => {
         navigate("/dashboard");
       }
     }, [isError, user, navigate]);
-  
+
   return (
     <Layout>
-        <AddRoute/>
-    </Layout>
+        <FormAddAD/>
+    </Layout> 
   )
 }
 
-export default RouteAdmin
+export default AddAdvert

@@ -1,14 +1,14 @@
 import React, {useEffect} from 'react'
 import Layout from './Layout'
+import SectionAdvertesiments from '../components/SectionAdvertesiments';
 import {useDispatch, useSelector} from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { getMe } from '../features/authSlice';
-import AddRoute from '../components/AddRoute';
 
-const RouteAdmin = () => {
+const Advertesiments = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const { isError, user } = useSelector(state => state.auth);
+    const {isError} = useSelector(state => state.auth);
   
     useEffect(() => {
       dispatch(getMe())
@@ -18,16 +18,12 @@ const RouteAdmin = () => {
       if(isError){
         navigate('/');
       }
-      if(user && user.role !== 'admin'){
-        navigate("/dashboard");
-      }
-    }, [isError, user, navigate]);
-  
+    }, [isError, navigate]);
   return (
     <Layout>
-        <AddRoute/>
+        <SectionAdvertesiments/>
     </Layout>
   )
 }
 
-export default RouteAdmin
+export default Advertesiments

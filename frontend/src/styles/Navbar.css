@@ -192,9 +192,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: auto;
   font-size: 2rem;
   color: #e3b04b;
+  background-color: #0a0a0a;
   font-family: 'Mulish', sans-serif;
   animation: fadeIn 1.5s ease-in-out infinite;
 }

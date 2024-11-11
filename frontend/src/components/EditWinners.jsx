@@ -4,7 +4,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/FormEditRegister.css";
-import { Link } from "react-router-dom";
 import { IoCheckmarkCircle, IoArrowBack } from "react-icons/io5";
 
 const EditWinners = () => {
@@ -63,10 +62,10 @@ const EditWinners = () => {
       <div className="form-edit-container">
         <div className="result-edit-container">
           <h1 className="title" style={{ color: "#E3B04B" }}>
-            Editar Ganador '{rider}'.
+            Editar Ganador {rider}
           </h1>
           <h2 className="subtitle mt-2" style={{ color: "#ffffff" }}>
-            ¡Edita a los ganadores del Reto Puma, {user && user.name}!
+            ¡Edita al ganador del Reto Puma!
           </h2>
           <div className="card bg-dark text-white">
             <div className="card-body">

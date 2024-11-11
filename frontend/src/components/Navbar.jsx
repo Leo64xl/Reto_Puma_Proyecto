@@ -22,11 +22,16 @@ const Navbar = ({ toggleSidebar }) => {
       "/products", "/products/add", "/forms/register",
       `/forms/register/edit/${id}`, "/users", "/users/add",
       "/forms/view/admin", "/forms/view/admin/graphics",
-      `/forms/view/admin/form/${id}`, `/users/edit/${id}`
+      `/forms/view/admin/form/${id}`, `/users/edit/${id}`,
+      "/result/winners", "/result/winners/add", 
+      `/result/winners/edit/${id}`, "/ruta", "/ruta/admin",
+      `/ruta/admin/edit/${id}`, "/advertisements", "/advertisements/admin",
+      `/advertisements/admin/edit/${id}`
     ],
     user: [
       "/products", "/forms/register", "/forms/register/add",
-      `/products/buy/${id}`, `/forms/register/edit/${id}`
+      `/products/buy/${id}`, `/forms/register/edit/${id}`,
+      "/advertisements", "/ruta"
     ]
   }), [id]);
 
@@ -73,7 +78,7 @@ const Navbar = ({ toggleSidebar }) => {
     return null;
   };
 
-  if (!user) return <div className="loadingMsg">Cargando...</div>;
+  if (!user) return <div className="loadingMsg">Cargando</div>;
 
   return (
     <div className="navbar-container">

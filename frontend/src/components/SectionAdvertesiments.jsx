@@ -5,60 +5,60 @@ import { IoAddCircle, IoTrash } from "react-icons/io5";
 import { useSelector } from 'react-redux';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FaInstagram, FaFacebook, FaYoutube } from "react-icons/fa";
-import "../styles/RoutePeople.css";
+import "../styles/SectionAdvertesiments.css";
 
-const RoutePeople = () => {
-  const [routePeople, setRoutePeople] = useState([]);
+const SectionAdvertesiments = () => {
+  const [sectionAdvertesiments, setSectionAdvertesiments] = useState([]);
   const { user } = useSelector((state) => state.auth);
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    fetchRoutePeople();
+    fetchSectionAdvertesiments();
   }, []);
 
-  const fetchRoutePeople = async () => {
-    const response = await axios.get("http://localhost:5000/routes");
-    setRoutePeople(response.data);
+  const fetchSectionAdvertesiments = async () => {
+    const response = await axios.get("http://localhost:5000/advertisements");
+    setSectionAdvertesiments(response.data);
   };
 
-  const handleDeleteRoute = async (uuid, name) => {
-    const confirmDelete = window.confirm(`¿Está seguro de que desea eliminar la ruta ${name}?`);
+  const handleDeleteSectionAdvertesiments = async (uuid, name) => {
+    const confirmDelete = window.confirm(`¿Está seguro de que desea eliminar el Aviso ${name}?`);
     if (confirmDelete) {
       try {
-        await axios.delete(`http://localhost:5000/routes/${uuid}`);
-        setMessage('Ruta eliminada exitosamente.');
-        setRoutePeople(routePeople.filter(route => route.uuid !== uuid));
+        await axios.delete(`http://localhost:5000/advertisements/${uuid}`);
+        setMessage('Aviso eliminado exitosamente.');
+        setSectionAdvertesiments(sectionAdvertesiments.filter(section => section.uuid !== uuid));
         setTimeout(() => setMessage(''), 2500);
       } catch (error) {
-        setMessage('No se pudo eliminar la ruta.');
+        setMessage('No se pudo eliminar el aviso.');
         setTimeout(() => setMessage(''), 3000);
       }
     }
   };
 
   return (
-    <div className="route-list-container">
+    <div className="advertisements-container">
       <div className="header-section">
-        <h1 className="title mt-1" style={{ color: '#E3B04B' }}>Rutas</h1>
-        <h2 className="subtitle mt-1" style={{ color: '#ffffff' }}>Lista de Rutas</h2>
+        <h1 className="title mt-1" style={{ color: '#E3B04B' }}>Avisos</h1>
+        <h2 className="subtitle mt-1" style={{ color: '#ffffff' }}>Lista de Avisos</h2>
         {user && user.role === 'admin' && (
           <div className="mb-3">
-            <Link to="/ruta/admin" className="btn btn-add-route">Añadir Ruta <IoAddCircle /></Link>
+            <Link to="/advertisements/admin" className="btn btn-add-advertisement">Añadir Aviso <IoAddCircle /></Link>
           </div>
         )}
       </div>
 
-      <div className="route-container">
-        {routePeople.map((route, index) => (
-          <div className="route-item" key={route.uuid}>
-            <img src={route.url} alt="Ruta" className="route-image" />
-            <div className="route-details">
-              <h3 className="route-title">{route.name} | Ruta {index+1}</h3>
-              <p className="route-description">Descripción: {route.description}</p>
+      <div className="advertisements-list">
+        {sectionAdvertesiments.map((section, index) => (
+          <div className="advertisement-card" key={section.uuid}>
+            <img src={section.url} alt="Aviso" className="advertisement-image" />
+            <div className="advertisement-details">
+              <h3 className="advertisement-title">{section.name}</h3>
+              <p className="advertisement-description">{section.description}</p>
               {user && user.role === 'admin' && (
-                <div className="route-actions d-flex justify-content-between">
-                  <Link to={`/ruta/admin/edit/${route.uuid}`} className="btn btn-edit-route me-2">Editar Ruta {index+1}</Link>
-                  <button onClick={() => handleDeleteRoute(route.uuid, route.name)} className="btn btn-delete-route">Eliminar Ruta</button>
+                <div className="advertisement-actions">
+                  <Link to={`/advertisements/admin/edit/${section.uuid}`} className="btn btn-edit-advertisement me-2">Editar Aviso {index+1}</Link>
+                  <button onClick={() => handleDeleteSectionAdvertesiments(section.uuid, section.name)} className="btn btn-delete-advertisement">Eliminar</button>
                 </div>
               )}
             </div>
@@ -90,7 +90,7 @@ const RoutePeople = () => {
         <p className="footer-copyright">© 2024 Reto Puma Bike. Todos los derechos reservados.</p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default RoutePeople;
+export default SectionAdvertesiments;
