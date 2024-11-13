@@ -7,7 +7,7 @@ import fs from "fs";
 export const getRoutes = async(req, res) => {
     try {
         let response;
-        if(req.role === "user") {
+        if(req.role === "user" || req.role === "admin") {
             response = await Routes.findAll({
                 attributes: ['uuid', 'name', 'image', 'url', 'description'],
                 include: [{
@@ -42,7 +42,7 @@ export const getRouteById = async(req  , res) => {
         });
         if(!route) return res.status(404).json({msg: "Datos no encontrados"});
         let response;
-        if(req.role === "user") {
+        if(req.role === "user" || req.role === "admin") {
             response = await Routes.findOne({
                 attributes: ['uuid', 'name', 'image', 'url', 'description'],
                 where: {

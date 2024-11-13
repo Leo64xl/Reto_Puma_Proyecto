@@ -5,7 +5,7 @@ import { Op } from "sequelize";
 export const getResults = async (req, res) => {
     try {
         let response;
-        if (req.role === "user") {
+        if (req.role === "user" || req.role === "admin") {
             response = await Results.findAll({
                 attributes: ['uuid', 'nameCompetition', 'rider', 'teamName', 'nationality', 'category'],
                 include: [{
@@ -41,7 +41,7 @@ export const getResultById = async (req, res) => {
         });
         if (!result) return res.status(404).json({ msg: "Datos no encontrados" });
         let response;
-        if (req.role === "user") {
+        if (req.role === "user" || req.role === "admin") {
             response = await Results.findOne({
                 attributes: ['uuid', 'nameCompetition', 'rider', 'teamName', 'nationality', 'category'],
                 where: {

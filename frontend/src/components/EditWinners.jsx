@@ -13,6 +13,7 @@ const EditWinners = () => {
   const [nationality, setNationality] = useState("");
   const [category, setCategory] = useState("");
   const [msg, setMsg] = useState("");
+  const { user } = useSelector((state) => state.auth);
   const navigate = useNavigate();
   const { id } = useParams();
 
@@ -54,18 +55,16 @@ const EditWinners = () => {
       }
     }
   };
-
-  const { user } = useSelector((state) => state.auth);
-
+  
   return (
     <div className="form-check-container">
       <div className="form-edit-container">
         <div className="result-edit-container">
           <h1 className="title" style={{ color: "#E3B04B" }}>
-            Editar Ganador {rider}
+            Editar al Ganador {rider}
           </h1>
           <h2 className="subtitle mt-2" style={{ color: "#ffffff" }}>
-            ¡Edita al ganador del Reto Puma!
+            ¡Edita al ganador del Reto Puma! {user && user.name}.
           </h2>
           <div className="card bg-dark text-white">
             <div className="card-body">

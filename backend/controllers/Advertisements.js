@@ -7,7 +7,7 @@ import fs from "fs";
 export const getAdvertisements = async(req, res) => {
     try {
         let response;
-        if(req.role === "user") {
+        if(req.role === "user" || req.role === "admin") {
             response = await Advertisements.findAll({
                 attributes: ['uuid', 'name', 'image', 'url', 'description'],
                 include: [{
@@ -42,7 +42,7 @@ export const getAdvertisementById = async(req , res) => {
         });
         if(!advertisement) return res.status(404).json({msg: "Datos no encontrados"});
         let response;
-        if(req.role === "user") {
+        if(req.role === "user" || req.role === "admin") {
             response = await Advertisements.findOne({
                 attributes: ['uuid', 'name', 'image', 'url', 'description'],
                 where: {

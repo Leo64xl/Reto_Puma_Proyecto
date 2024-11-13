@@ -7,7 +7,7 @@ import fs from "fs";
 export const getProducts = async(req, res) => { 
     try {
         let response;
-        if(req.role === "user") {
+        if(req.role === "user" || req.role === "admin") {
             response = await Products.findAll({
                 attributes: ['uuid', 'name', 'price', 'image', 'url', 'description', 'available'],
                 include: [{
@@ -42,7 +42,7 @@ export const getProductById = async(req, res) => {
         });
         if(!product) return res.status(404).json({msg: "Datos no encontrados"});
         let response;
-        if(req.role === "user") {
+        if(req.role === "user" || req.role === "admin") {
             response = await Products.findOne({
                 attributes: ['uuid', 'name', 'price', 'image' , 'url', 'description', 'available'],
                 where: {
