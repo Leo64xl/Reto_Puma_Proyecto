@@ -1,0 +1,128 @@
+.body {
+  background-color: #0a0a0a;
+}
+
+.form-buy-product-container {
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 100px;
+  background-color: #1c1c1c;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.title {
+  font-size: 2.5em;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #e3b04b;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  font-size: 1.8em;
+  color: #ffffff;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.card {
+  background-color: #1c1c1c;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-body {
+  padding: 20px;
+  background-color: #000000;
+  border-radius: 8px;
+}
+
+.form-label {
+  font-size: 18px;
+  color: #e3b04b;
+}
+
+.form-control {
+  background-color: #2c2c2c;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.form-control::placeholder {
+  color: #999999;
+}
+
+.btn-success {
+  background-color: #369139;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-success:hover {
+  background-color: #246e2605;
+  transform: scale(1.05);
+}
+
+.image-container {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.product-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  background: none; /* Quitar el fondo de la imagen */
+}
+
+.whatsapp-contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  background-color: #25d3654f;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.whatsapp-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.whatsapp-link:hover {
+  background-color: #0a6b2e4f;
+  transform: scale(1.02);
+}
+
+.whatsapp-text {
+  font-size: 18px;
+  color: #ffffff;
+  margin-left: 0.5rem;
+  animation: whatsappTextAnimation 1.5s infinite;
+}
+
+@keyframes whatsappTextAnimation {
+  0%, 100% {
+    color: #ffffff;
+    transform: translateX(0);
+  }
+  50% {
+    color: #25d366;
+    transform: translateX(5px);
+  }
+}

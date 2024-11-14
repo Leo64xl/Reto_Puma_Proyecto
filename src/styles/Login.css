@@ -1,0 +1,446 @@
+:root {
+  --dark: rgba(22, 25, 28, 1);
+  --darkinput: rgba(30, 33, 38, 1);
+  --light-50: rgba(255, 255, 255, 0.5);
+  --para-light-font-family: "Mulish", Helvetica;
+  --para-light-font-size: 16px;
+  --para-light-font-style: normal;
+  --para-light-font-weight: 700;
+  --title-font-family: "Mulish", Helvetica;
+  --title-font-size: 36px;
+  --title-font-weight: 700;
+}
+
+.carrusel {
+  background-color: var(--dark);
+  height: 100vh; /* Asegúrate de que esto no esté afectando la visibilidad */
+  width: calc(100vw - 648px);
+  overflow: hidden;
+  position: relative; /* Esto ayuda a que el contenedor se ajuste a su contenido */
+}
+
+.carrusel img {
+  width: 100%;
+  height: 100vh; /* Cambiado a auto para mantener la proporción */
+  max-height: 100%; /* Limitar la altura máxima */
+  object-fit: cover; /* Mantener proporciones y cubrir */
+  display: block; /* Asegurarse de que no haya espacio en blanco debajo de las imágenes */
+}
+/*Eslogan*/
+.eslogan {
+  position: absolute;
+  bottom: 20px;
+  right: 50%;
+  color: #ffffff;
+  font-family: "Mulish-Bold", Helvetica;
+  font-size: 1vw;
+  font-weight: 700;
+  height: auto;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: fixed;
+  text-align: center;
+}
+
+.eslogan:hover {
+  color: #f0f0f0aa;
+}
+
+.prev-button,
+.next-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0);
+  color: rgb(255, 255, 255);
+  padding: 1rem; /* Usa unidades relativas */
+  cursor: pointer;
+  z-index: 2;
+  font-size: 2rem;
+}
+
+.prev-button {
+  left: 2%; /* Usa un porcentaje para que se ajuste a diferentes tamaños */
+}
+
+.next-button {
+  right: 2%; /* Usa un porcentaje para que se ajuste a diferentes tamaños */
+}
+
+/*Para los puntos del carrusel*/
+
+.form {
+  background-color: var(--dark);
+  height: 100vh;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 648px;
+  overflow: auto;
+}
+
+.form-content {
+  position: relative;
+  padding: 0 67px;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 30vh auto 20vh;
+}
+
+.form .title-section {
+  display: flex;
+  align-items: flex-end;
+  margin-top: 25%;
+  margin-left: 10%;
+}
+
+.email-label {
+  color: #ffffff;
+  font-family: "Mulish-Bold", Helvetica;
+}
+
+.passwordlabel {
+  color: #ffffff;
+  font-family: "Mulish-Bold", Helvetica;
+}
+
+.form .text-wrapper {
+  color: #ffffff;
+  font-family: var(--title-font-family);
+  font-size: clamp(28px, 5vw, var(--title-font-size));
+  font-weight: var(--title-font-weight);
+  margin-bottom: 2rem;
+}
+
+.form .inputs-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-left: 10%;
+}
+
+.form .footer-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-left: 10%;
+}
+
+.form .input2,
+.form .input-2 {
+  width: min(500px, 100%);
+}
+
+.email-input {
+  margin-bottom: 20px;
+}
+
+.email-input label {
+  color: #ffffff;
+  font-family: var(--para-light-font-family);
+  font-size: var(--para-light-font-size);
+  font-weight: var(--para-light-font-weight);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.email-input .overlap-group {
+  background-color: var(--darkinput);
+  border-radius: 6px;
+  height: 60px;
+  width: 100%;
+  padding: 10px;
+  color: #e8e8e8;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0px 2px 5px rgba(35, 35, 35, 0.3);
+}
+
+.form .buttom {
+  background: linear-gradient(
+    180deg,
+    rgb(57, 105, 252) 0%,
+    rgb(42, 73, 255) 100%
+  );
+  border-radius: 6px;
+  height: 60px;
+  margin-top: 2rem;
+  position: relative;
+  cursor: pointer;
+  width: min(500px, 100%);
+}
+/*text-wrapper-3 para olvidar la contraseña*/
+.form .text-wrapper-3 {
+  color: #ffffff9a;
+  font-family: "Mulish-Light", Helvetica;
+  font-size: 16px;
+  font-weight: 300;
+  text-align: center;
+  margin-top: 5px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.form .text-wrapper-3:hover {
+  color: #ffffff;
+}
+
+.form .text-wrapper-4 {
+  color: #ffffff;
+  font-family: "Mulish-Bold", Helvetica;
+  font-size: 20px;
+  font-weight: 700;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
+
+.form .a-n-no-tienes-cuenta {
+  color: transparent;
+  font-family: "Mulish-Light", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  width: 100%;
+  text-align: center;
+  margin-top: 2rem;
+  margin-left: -5%;
+}
+
+.textInputWrapper {
+  position: relative; /* Asegura que los pseudo-elementos se posicionen correctamente */
+  width: min(500px, 100%); /* O tu valor específico */
+  margin: 12px 0;
+  --accent-color: #a3e583;
+}
+
+.textInputWrapper:before {
+  transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+}
+
+.textInputWrapper:before,
+.textInputWrapper:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0; /* Ajusta la posición al borde inferior del contenedor */
+  z-index: 4;
+  width: 100%;
+}
+
+.textInputWrapper:focus-within:before {
+  border-bottom: 1px solid var(--accent-color);
+}
+
+.textInputWrapper:before {
+  transition: border-bottom-color 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.42);
+}
+
+.textInputWrapper:focus-within:before {
+  border-bottom: 1px solid var(--accent-color);
+  transform: scaleX(1);
+}
+
+.textInputWrapper:focus-within:after {
+  border-bottom: 2px solid var(--accent-color);
+  transform: scaleX(1);
+}
+
+.textInputWrapper:after {
+  content: "";
+  transform: scaleX(0);
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  will-change: transform;
+  border-bottom: 2px solid var(--accent-color);
+  border-bottom-color: var(--accent-color);
+}
+
+.textInput::placeholder {
+  transition: opacity 250ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  opacity: 1;
+  user-select: none;
+  color: rgba(255, 255, 255, 0.582);
+}
+
+.textInputWrapper .textInput {
+  border-radius: 5px 5px 0px 0px;
+  box-shadow: 0px 2px 5px rgb(35 35 35 / 30%);
+  max-height: 60px;
+  background-color: #252525;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 200ms;
+  transition-property: background-color;
+  color: #e8e8e8;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 12px;
+  width: min(500px, 100%);
+}
+
+.textInputWrapper .textInput:focus,
+.textInputWrapper .textInput:active {
+  outline: none;
+}
+
+.textInputWrapper:focus-within .textInput,
+.textInputWrapper .textInput:focus,
+.textInputWrapper .textInput:active {
+  background-color: #353535;
+}
+
+.textInputWrapper:focus-within .textInput::placeholder {
+  opacity: 0;
+}
+
+.textInput {
+  width: 100%;
+  height: 60px;
+  border-radius: 5px;
+  background-color: #252525;
+  color: #e8e8e8;
+  font-size: 14px;
+  padding: 12px;
+  border: none;
+}
+
+/* Input container y eye icon */
+.input-container {
+  position: relative;
+  width: 100%;
+}
+
+.eye {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  width: 24px;
+  height: auto;
+  z-index: 1;
+}
+
+/* Estilos para el texto y spans */
+.span {
+  color: #ffffff80;
+  font-weight: 300;
+}
+
+.text-wrapper-5 {
+  color: #ffffff;
+  font-family: "Mulish-Bold", Helvetica;
+  font-weight: 700;
+}
+
+/* Media Queries */
+@media screen and (max-width: 1200px) {
+  .eslogan {
+    display: block; /* Muestra el eslogan si es necesario */
+    font-size: 1.5vh; /* Aumenta el tamaño de la fuente de manera más dinámica */
+    width: 70%; /* Ancho mayor para pantallas más pequeñas */
+    padding: 8px 15px; /* Ajusta el padding para ser más pequeño */
+    position: relative; /* Cambia a relativo para evitar problemas de posicionamiento */
+    left: 50%; /* Centrado horizontal */
+    transform: translateX(-50%); /* Centrado efectivo */
+    bottom: 15%; /* Distancia desde la parte inferior del contenedor */
+    text-align: center; /* Asegúrate de que el texto esté centrado */
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .eslogan {
+    display: block; /* Muestra el eslogan si es necesario */
+    font-size: 1.5vh; /* Tamaño de fuente ajustable para pantallas pequeñas */
+    width: 80%; /* Ancho mayor para pantallas más pequeñas */
+    padding: 6px 12px; /* Ajusta el padding para ser más pequeño */
+    position: relative; /* Cambia a relativo para evitar problemas de posicionamiento */
+    left: 50%; /* Centrado horizontal */
+    transform: translateX(-50%); /* Centrado efectivo */
+    bottom: 12%; /* Distancia desde la parte inferior del contenedor */
+    text-align: center; /* Asegúrate de que el texto esté centrado */
+  }
+}
+
+@media screen and (max-width: 920px) {
+  .eslogan {
+    display: block; /* Muestra el eslogan si es necesario */
+    font-size: 1.5vh; /* Tamaño de fuente ajustable para pantallas pequeñas */
+    width: 80%; /* Ancho mayor para pantallas más pequeñas */
+    padding: 6px 12px; /* Ajusta el padding para ser más pequeño */
+    position: relative; /* Cambia a relativo para evitar problemas de posicionamiento */
+    left: 50%; /* Centrado horizontal */
+    transform: translateX(-50%); /* Centrado efectivo */
+    bottom: 17%; /* Distancia desde la parte inferior del contenedor */
+    text-align: center; /* Asegúrate de que el texto esté centrado */
+  }
+}
+
+@media screen and (max-width: 851px) {
+  .eslogan {
+    bottom: 15%;
+  }
+}
+
+@media screen and (max-width: 820px) {
+  .form {
+    width: 100%;
+  }
+
+  .textInputWrapper .textInput {
+    font-size: 16px;
+  }
+
+  .form .buttom {
+    font-size: 16px;
+  }
+
+  .carrusel {
+    height: 50vh;
+  }
+
+  .eslogan {
+    display: none;
+  }
+
+  .prev-button,
+  .next-button {
+    display: none;
+  }
+
+  .title-section,
+  .inputs-section,
+  .footer-section {
+    justify-content: center;
+    align-items: center;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+}
+
+@media screen and (max-height: 820px) {
+  .form-content {
+    grid-template-rows: 25vh auto 15vh;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .form-content {
+    padding: 0 15px;
+    grid-template-rows: 20vh auto 15vh;
+  }
+
+  .form .text-wrapper {
+    font-size: 24px;
+  }
+
+  .textInput,
+  .overlap-group,
+  .form .buttom {
+    height: 50px;
+  }
+}

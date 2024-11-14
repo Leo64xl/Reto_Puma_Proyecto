@@ -1,0 +1,100 @@
+.route-list-container {
+  padding: 80px;
+}
+
+.header-section {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.route-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.route-item {
+  width: 100%;
+  max-width: 600px;
+  background-color: #1A1C21 ;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px #e3b04b;
+  transition: transform 0.3s;
+}
+
+.route-item:hover {
+  transform: translateY(-10px);
+}
+
+.route-image {
+  width: 100%;
+  height: auto;
+  border-bottom: 4px solid #e3b04b; /* Línea dorada */
+}
+
+.route-details {
+  padding: 20px;
+  color: #ffffff;
+  text-align: left;
+  width: 100%;
+  word-wrap: break-word;
+}
+
+.route-title {
+  font-size: 1.5em;
+  color: #e3b04b;
+  font-weight: bold;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.route-description {
+  font-size: 19px;
+  margin-bottom: 20px;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+.route-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.btn-add-route {
+  background-color: #e3b04b;
+  border: none;
+  width: 170px;
+  height: 50px;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+}
+
+.btn-add-route:hover {
+  background-color: #cf9726;
+}
+
+.btn-edit-route {
+  background-color: #e3b04b;
+  border: none;
+  color: #000000;
+}
+
+.btn-edit-route:hover {
+  background-color: #cf9726;
+}
+
+.btn-delete-route {
+  background-color: #e74c3c;
+  border: none;
+  color: #ffffff;
+}
+
+.btn-delete-route:hover {
+  background-color: #c0392b;
+}
