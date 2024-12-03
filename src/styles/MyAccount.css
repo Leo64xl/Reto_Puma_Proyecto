@@ -4,7 +4,7 @@
 }
 .account-container {
   padding: 50px;
-  background-color: #2b2b2b;
+  background-color: #15191f;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   color: #ffffff;
@@ -25,7 +25,7 @@
 }
 
 .account-details {
-  background-color: #1d1d1d;
+  background-color: #1d1d1d8a;
   padding: 5px;
   border-radius: 8px;
   text-align: left;

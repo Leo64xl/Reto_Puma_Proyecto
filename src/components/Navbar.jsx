@@ -28,11 +28,13 @@ const Navbar = ({ toggleSidebar }) => {
       `/result/winners/edit/${id}`, "/ruta", "/ruta/admin",
       `/ruta/admin/edit/${id}`, "/advertisements", "/advertisements/admin",
       `/advertisements/admin/edit/${id}`, "/my/account", `/products/edit/${id}`,
+      "/my/account/edit"
     ],
     user: [
       "/products", "/forms/register", "/forms/register/add",
       `/products/buy/${id}`, `/forms/register/edit/${id}`,
-      "/advertisements", "/ruta", "/my/account", "/result/winners"
+      "/advertisements", "/ruta", "/my/account", "/result/winners",
+      "/my/account/edit"
     ]
   }), [id]);
 

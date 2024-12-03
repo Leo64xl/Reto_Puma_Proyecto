@@ -1,0 +1,84 @@
+.my-account-more-container {
+  padding: 20px;
+  background-color: #1f1f1f;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #ffffff;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 120px;
+}
+
+.my-account-more-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #e3b04b;
+}
+
+.my-account-more-subtitle {
+  font-size: 21px;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.my-account-more-card {
+  background-color: #161616;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.my-account-more-card-body {
+  padding: 20px;
+}
+
+.my-account-more-form-group {
+  margin-bottom: 15px;
+}
+
+.my-account-more-form-label {
+  font-size: 1.2em;
+  margin-bottom: 5px;
+  display: block;
+  color: #e3b04b;
+}
+
+.my-account-more-field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #ffffff;
+}
+
+.my-account-more-form-control {
+  background-color: #3c3c3c;
+  border: none;
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 4px;
+  margin-left: 10px;
+  flex-grow: 1;
+}
+
+.my-account-more-form-control::placeholder {
+  color: #b0b0b0;
+}
+
+.my-account-more-btn {
+  background-color: #c99735;
+  border: none;
+  color: #ffffffa9;
+  font-size: 1em;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.my-account-more-btn:hover {
+  background-color: #be9032;
+}
+
+.alert {
+  margin-top: 20px;
+  font-size: 1.2em;
+}

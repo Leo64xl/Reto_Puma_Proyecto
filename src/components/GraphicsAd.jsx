@@ -12,6 +12,7 @@ import {
 } from "chart.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/GraphicsAd.css";
+import { IoColorFillSharp, IoList, IoLocation, IoLogoJavascript, IoLogoReact, IoPeople, IoShirt } from "react-icons/io5";
 
 Chart.register(
   CategoryScale,
@@ -144,30 +145,30 @@ export const GraphicsAd = () => {
   return (
     <div className="graphics-ad-container">
       <h1 className="title mt-1" style={{ color: "#e3b04b" }}>
-       Estadisticas
+       Graficas de Inscripciones <IoLogoJavascript/>
       </h1>
       <h2 className="subtitle mt-1" style={{ color: "#ffffff" }}>
-        Graficacion de Datos
+        Visualizacion de Datos Precisa <IoLogoReact/>
       </h2>
 
       <div className="chart-container">
         <div className="chart-wrapper">
-          <h2>Categorias Seleccionadas</h2>
+          <h2><IoList /> Categorias Seleccionadas:</h2>
           <Bar data={generateBarChartData(categoryData, "Personas")} />
         </div>
 
         <div className="chart-wrapper">
-          <h2>Tallas Solicitadas</h2>
+          <h2><IoColorFillSharp />Tallas Solicitadas:</h2>
           <Bar data={generateBarChartData(tallaData, "Numero de Personas que eligieron la talla")} />
         </div>
 
         <div className="chart-wrapper">
-          <h2>Equipos Ingresados</h2>
+          <h2><IoPeople /> Equipos Ingresados:</h2>
           <Bar data={generateBarChartData(teamData, "Numero de Personas en el Equipo")} />
         </div>
 
         <div className="chart-wrapper">
-          <h2>Lugar de Procedencia</h2>
+          <h2><IoLocation /> Lugar de Procedencia:</h2>
           <div className="pie-chart-container">
             <Pie
               data={generatePieChartData(originData, "Porcentaje de Personas")}
